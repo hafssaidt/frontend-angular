@@ -42,6 +42,7 @@ mat-cell {
 mat-row {
   font-family: "Poppins", sans-serif;
   cursor: pointer;
+  line-height: normal !important;
 }
 
 mat-row:hover {

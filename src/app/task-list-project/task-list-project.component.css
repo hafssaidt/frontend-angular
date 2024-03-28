@@ -42,6 +42,8 @@ mat-row {
   font-family: "Poppins", sans-serif;
   font-weight: 500;
   color: rgb(73, 80, 87);
+  line-height: normal !important;
+
 }
 
 mat-row:hover {
