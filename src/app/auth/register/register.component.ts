@@ -39,8 +39,14 @@ export class RegisterComponent {
   };
   errMsg: boolean = false;
   termsChecked = false;
+  confirmPassword: string = "";
   hidePassword: boolean = true;
+  hideConfPassword: boolean = true;
   constructor(private userService: UserService, private router: Router) {}
+
+  passwordsMatch(): boolean {
+    return this.user.password === this.confirmPassword;
+  }
 
   createAccount() {
     this.userService.createAccount(this.user).subscribe(

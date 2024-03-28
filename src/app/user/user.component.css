@@ -97,7 +97,7 @@ mat-dialog-actions {
 }
 
 .form-control {
-  height: 45px !important;
+  height: 50px !important;
   border-radius: 10px;
 }
 
@@ -121,5 +121,5 @@ mat-dialog-actions {
 
 .p-input-icon-right input {
   height: 50px !important;
-  width: 500px;
+  width: 502px;
 }

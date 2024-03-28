@@ -1,25 +1,25 @@
-import { UserService } from './auth/user.service';
-import { MatMenuModule } from '@angular/material/menu';
-import { Component } from '@angular/core';
-import { Router, RouterModule, RouterOutlet } from '@angular/router';
-import { TokenService } from './auth/token.service';
-import { AccountService } from './auth/account.service';
-import { SideBarComponent } from './side-bar/side-bar.component';
-import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { CommonModule } from '@angular/common';
-import { MenuModule } from 'primeng/menu';
-import { ButtonModule } from 'primeng/button';
-import { User } from './models/user';
-import { UserComponent } from './user/user.component';
-import { MatDialog } from '@angular/material/dialog';
+import { UserService } from "./auth/user.service";
+import { MatMenuModule } from "@angular/material/menu";
+import { Component } from "@angular/core";
+import { Router, RouterModule, RouterOutlet } from "@angular/router";
+import { TokenService } from "./auth/token.service";
+import { AccountService } from "./auth/account.service";
+import { SideBarComponent } from "./side-bar/side-bar.component";
+import { MatButtonModule } from "@angular/material/button";
+import { MatIconModule } from "@angular/material/icon";
+import { MatToolbarModule } from "@angular/material/toolbar";
+import { CommonModule } from "@angular/common";
+import { MenuModule } from "primeng/menu";
+import { ButtonModule } from "primeng/button";
+import { User } from "./models/user";
+import { UserComponent } from "./user/user.component";
+import { MatDialog } from "@angular/material/dialog";
 
 @Component({
-  selector: 'app-root',
+  selector: "app-root",
   standalone: true,
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css',
+  templateUrl: "./app.component.html",
+  styleUrl: "./app.component.css",
   imports: [
     CommonModule,
     RouterOutlet,
@@ -33,26 +33,26 @@ import { MatDialog } from '@angular/material/dialog';
   ],
 })
 export class AppComponent {
-  title = 'skyline-ang';
+  title = "skyline-ang";
   currentUser = null;
   user: User = {
-    id: '',
-    firstName: '',
-    lastName: '',
-    email: '',
-    password: '',
+    id: "",
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
   };
   items = [
     {
-      label: 'Profile',
-      icon: 'pi pi-fw pi-user-edit',
+      label: "Profile",
+      icon: "pi pi-fw pi-user-edit",
       command: () => {
         this.openEditProfile();
       },
     },
     {
-      label: 'Sign Out',
-      icon: 'pi pi-fw pi-sign-out',
+      label: "Sign Out",
+      icon: "pi pi-fw pi-sign-out",
       command: () => {
         this.logout();
       },
@@ -70,20 +70,19 @@ export class AppComponent {
   ngOnInit(): void {
     this.accountService.authStatus.subscribe(() => {
       this.currentUser = this.tokenService.getInfo();
-      console.log('status', this.currentUser);
-      this.getProfile();
+      console.log("status", this.currentUser);
     });
   }
   signup() {
-    this.router.navigateByUrl('/signup');
+    this.router.navigateByUrl("/signup");
   }
   login() {
-    this.router.navigateByUrl('/login');
+    this.router.navigateByUrl("/login");
   }
   logout() {
     this.tokenService.remove();
     this.accountService.changeStatus(false);
-    this.router.navigateByUrl('/login');
+    this.router.navigateByUrl("/login");
   }
   getProfile() {
     this.userService.getUser().subscribe((res: User) => {
@@ -97,9 +96,10 @@ export class AppComponent {
   }
 
   openEditProfile() {
+    this.getProfile();
     const dialogRef = this.dialog.open(UserComponent, {
-      width: '550px',
-      height: '530px',
+      width: "550px",
+      height: "530px",
       data: {
         user: this.user,
       },
