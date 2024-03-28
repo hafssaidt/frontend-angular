@@ -1,0 +1,66 @@
+<div class="dashboard">
+  <div class="count">
+    <mat-card class="comp-tasks">
+      <mat-card-header>
+        <mat-card-title> Completed tasks </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        {{ countCompletedTasks }}
+      </mat-card-content>
+    </mat-card>
+    <mat-card class="incomp-tasks">
+      <mat-card-header>
+        <mat-card-title> Incomplete tasks </mat-card-title>
+      </mat-card-header>
+      <mat-card-content> {{ countIncompleteTasks }}</mat-card-content>
+    </mat-card>
+    <mat-card class="totale-tasks">
+      <mat-card-header>
+        <mat-card-title> Totale tasks </mat-card-title>
+      </mat-card-header>
+      <mat-card-content> {{ countTotalTasks }} </mat-card-content>
+    </mat-card>
+    <mat-card class="totale-projects">
+      <mat-card-header>
+        <mat-card-title> Totale projects </mat-card-title>
+      </mat-card-header>
+      <mat-card-content> {{ countTotalProjects }} </mat-card-content>
+    </mat-card>
+  </div>
+  <div class="charts">
+    <mat-card class="line-chart-card">
+      <mat-card-header>
+        <mat-card-title> Count Tasks By Date </mat-card-title>
+      </mat-card-header>
+      <mat-card-content class="lineChart">
+        <canvas id="lineChart"></canvas>
+      </mat-card-content>
+    </mat-card>
+    <mat-card class="doughnut-chart-card">
+      <mat-card-header>
+        <mat-card-title> Count Projects By Priority </mat-card-title>
+      </mat-card-header>
+      <mat-card-content class="doughnutChart">
+        <canvas id="doughnutChart"></canvas>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <div class="charts">
+    <mat-card class="stacked-chart-card">
+      <mat-card-header>
+        <mat-card-title> Progress Tasks By Project </mat-card-title>
+      </mat-card-header>
+      <mat-card-content class="stackedBarChart">
+        <canvas id="stackedBarChart"></canvas>
+      </mat-card-content>
+    </mat-card>
+    <mat-card class="bar-chart-card">
+      <mat-card-header>
+        <mat-card-title> Count Tasks In Kanban Items </mat-card-title>
+      </mat-card-header>
+      <mat-card-content class="barChart">
+        <canvas id="barChart"></canvas>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

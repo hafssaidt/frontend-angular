@@ -1,0 +1,146 @@
+mat-card {
+  margin-left: 31%;
+  width: 480px;
+  position: fixed;
+  border-radius: 8px;
+  border: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  margin-top: 80px;
+  align-items: center;
+}
+
+.title {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-size: 30px;
+  font-weight: 800px;
+  color: #000033 !important;
+  font-family: "Poppins", sans-serif;
+}
+
+form {
+  font-size: 15px;
+  font-weight: 500;
+  align-items: center;
+}
+
+.form-control {
+  width: 350px;
+  height: 45px;
+}
+
+.msg {
+  font-weight: 400;
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.container {
+  display: table-cell;
+}
+
+#switch {
+  color: #ff4e50;
+}
+
+.info {
+  font-size: 15px;
+  margin-left: 50px;
+  color: rgb(49, 50, 60);
+  font-family: "Poppins", sans-serif;
+}
+
+a {
+  color: rgb(229, 107, 107);
+}
+
+.signup-button {
+  background-color: #3f51b5;
+  border: none;
+  color: white !important;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  padding: 12px 24px;
+  border-radius: 50px;
+  box-shadow: 0px 4px 8px rgba(65, 105, 225, 0.1);
+  transition: background-color 0.3s ease-in-out;
+  height: 50px;
+  width: 350px;
+  margin-bottom: 10px;
+}
+
+.signup-button:hover {
+  background-color: #3f51b5;
+}
+
+.signup-button:focus {
+  outline: none;
+}
+
+.signup-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.9;
+}
+
+.test {
+  float: right;
+}
+
+.form-control:focus {
+  border-color: #34495e;
+  box-shadow: 0 0 0 0.06rem #34495e;
+  outline: none;
+}
+
+.container {
+  display: table-cell;
+  align-items: center;
+}
+
+label {
+  font-size: 14px;
+  font-weight: 400px;
+  color: rgb(107, 109, 124);
+}
+
+.terms {
+  font-size: 14px;
+  font-weight: 400px;
+  margin-left: 10px;
+  font-family: "Poppins", sans-serif;
+  text-wrap: nowrap;
+}
+
+a {
+  text-decoration: none;
+}
+
+.pswd-icon {
+  padding: 5px;
+  cursor: pointer;
+}
+
+.p-input-icon-right input {
+  height: 40px !important;
+  width: 350px;
+}
+
+.pi-plus {
+  font-size: 13px;
+  margin-right: 2px;
+}
+
+.check {
+  display: flex;
+  align-items: center;
+  margin-left: 15px;
+}
+
+::ng-deep .p-checkbox .p-checkbox-box.p-highlight {
+  border-color: #3f51b5;
+  background: #3f51b5;
+}

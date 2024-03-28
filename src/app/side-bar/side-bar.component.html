@@ -1,0 +1,33 @@
+<mat-card class="sidebar-slider" [class.sidebar-slide-in]="sidebarShow">
+  <div class="sidebar-content">
+    <a routerLink="/tasks" class="sidebar-link">
+      <i class="pi pi-check-square sidebar-icon"></i>
+      <span>Task List</span>
+    </a>
+    <a routerLink="/dashboard" class="sidebar-link">
+      <i class="pi pi-chart-line sidebar-icon"></i>
+      <span>Dashboard</span>
+    </a>
+    <a routerLink="/kanban" class="sidebar-link">
+      <i class="pi pi-sliders-v sidebar-icon"></i>
+      <span>Kanban</span>
+    </a>
+    <div class="projects-link">
+      <a routerLink="/projects" class="sidebar-link">
+        <i class="pi pi-table sidebar-icon"></i>
+        Projects
+      </a>
+      <i (click)="showProjectsMenu = !showProjectsMenu" class="pi pi-angle-right sidebar-icon drop-icon"
+        [ngClass]="{ flipped: showProjectsMenu }"></i>
+    </div>
+    <div *ngIf="showProjectsMenu" class="projects-list">
+      <a *ngFor="let project of projects" [routerLink]="['/projects/', project.id, project.name]"
+        class="sidebar-link project-name">
+        <i class="pi pi-cloud"></i>
+        <span>{{ truncateProjectName(project.name) }}</span>
+      </a>
+    </div>
+  </div>
+</mat-card>
+
+<div class="layout-content layout-content-wrapper"></div>

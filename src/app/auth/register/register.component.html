@@ -1,0 +1,97 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title class="title">Sign Up</mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content>
+    <div class="container">
+      <div *ngIf="errMsg" class="alrt msg mt-2">
+        Email is already in use! <br />
+        Please log in to your account.
+      </div>
+      <div class="col-md-4">
+        <form #f="ngForm">
+          <div class="form-group mt-3">
+            <label for="firstName">First Name</label>
+            <input required minlength="4" maxlength="15" pattern="[a-zA-Z]+" [(ngModel)]="user.firstName" id="firstname"
+              #firstName="ngModel" name="firstname" class="form-control" type="text" />
+          </div>
+
+          <div class="alrt" *ngIf="firstName.touched && !firstName.valid">
+            <div *ngIf="firstName.errors?.['required']">
+              Enter your first name.
+            </div>
+            <div *ngIf="firstName.errors?.['minlength']">
+              First name must be at least 4 characters long!
+            </div>
+            <div *ngIf="firstName.errors?.['pattern']">
+              First name must be alpha!
+            </div>
+          </div>
+
+          <div class="form-group mt-3">
+            <label for="lastName">Last Name</label>
+            <input required minlength="4" maxlength="15" pattern="[a-zA-Z]+" [(ngModel)]="user.lastName"
+              #lastName="ngModel" name="lastname" id="lastname" class="form-control" type="text" />
+          </div>
+
+          <div class="alrt" *ngIf="lastName.touched && !lastName.valid">
+            <div *ngIf="lastName.errors?.['required']">
+              Enter your last name.
+            </div>
+            <div *ngIf="lastName.errors?.['minlength']">
+              Last name must be at least 4 characters long!
+            </div>
+            <div *ngIf="lastName.errors?.['pattern']">
+              Last name must be alpha!
+            </div>
+          </div>
+
+          <div class="form-group mt-3">
+            <label for="email">Email</label>
+            <input required email pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" maxlength="40"
+              [(ngModel)]="user.email" #email="ngModel" name="email" id="email" class="form-control" type="email" />
+          </div>
+
+          <div class="alrt" *ngIf="email.touched && !email.valid">
+            <div *ngIf="email.errors?.['required']">Enter your email.</div>
+            <div *ngIf="email.errors?.['pattern']">
+              This is not a valid Email!!
+            </div>
+          </div>
+
+          <div class="form-group mt-3 p-input-icon-right">
+            <label for="password">Password</label>
+            <input [type]="hidePassword ? 'password' : 'text'" required minlength="8" maxlength="20"
+              [(ngModel)]="user.password" #password="ngModel" name="password" class="form-control" type="password"
+              id="password" />
+            <i #icon class="pswd-icon" (click)="hidePassword = !this.hidePassword">
+              <i class="pi pi-eye" *ngIf="!hidePassword"></i>
+              <i class="pi pi-eye-slash" *ngIf="hidePassword"></i>
+            </i>
+          </div>
+          <div class="alrt" *ngIf="password.touched && !password.valid">
+            <div *ngIf="password.errors?.['required']">
+              Enter your password.
+            </div>
+            <div *ngIf="password.errors?.['minlength']">
+              Password must be at least 8 characters long!
+            </div>
+          </div>
+          <div class="form-group mt-2 check">
+            <p-checkbox name="termsChecked" [(ngModel)]="termsChecked" [binary]="true"></p-checkbox>
+            <span class="terms">I have read the Terms and Conditions</span>
+          </div>
+          <div class="form-group mt-3">
+            <button mat-button class="signup-button" [disabled]="!f.valid || !termsChecked" (click)="createAccount()">
+              Sign Up
+            </button>
+          </div>
+        </form>
+      </div>
+      <div class="info">
+        Already have an account? <a routerLink="/login" id="switch">Login </a>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

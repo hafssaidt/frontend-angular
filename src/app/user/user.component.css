@@ -1,0 +1,125 @@
+h2 {
+  font-size: 18px;
+  margin-left: 25px;
+  font-weight: 500;
+  font-family: "Poppins", sans-serif;
+  color: black;
+}
+
+.alrt {
+  color: rgb(232, 64, 64);
+  font-family: "Poppins", sans-serif;
+}
+
+mat-dialog-actions {
+  overflow: hidden;
+}
+
+.cancel {
+  background-color: #999999;
+  color: white;
+}
+
+.buttons {
+  float: right;
+}
+
+.save-btn {
+  background-color: #3f51b5;
+  border: none;
+  color: white !important;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  padding: 12px 24px;
+  border-radius: 15px;
+  box-shadow: 0px 4px 8px rgba(65, 105, 225, 0.1);
+  transition: background-color 0.3s ease-in-out;
+  height: 50px;
+  width: 100%;
+  margin-bottom: 10px;
+  margin-top: 20px;
+  font-family: "Poppins", sans-serif;
+}
+
+.save-btn:hover {
+  background-color: #3f51b5;
+}
+
+.save-btn:focus {
+  outline: none;
+}
+
+.save-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.9;
+}
+
+#close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: #333;
+  font-size: 18px;
+  width: 30px;
+  height: 30px;
+  overflow: hidden;
+  border-radius: 50%;
+  background-color: white;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  margin-right: 25px;
+  margin-top: -15px;
+}
+
+#close:hover {
+  overflow: hidden;
+  background-color: white;
+  transform: scale(1.1);
+}
+
+#close mat-icon {
+  font-size: 24px;
+}
+
+.mat-dialog-header {
+  display: flex;
+}
+
+.date-inputs {
+  display: flex;
+  align-items: center;
+}
+
+.date-inputs label {
+  margin-right: 10px;
+}
+
+.form-control {
+  height: 45px !important;
+  border-radius: 10px;
+}
+
+.pi-times {
+  font-size: 14px;
+}
+
+::ng-deep .mat-mdc-dialog-container .mdc-dialog__surface {
+  border-radius: 25px;
+  background-color: #f7faff;
+}
+
+.p-button-icon-only {
+  background-color: #f8f9fa !important;
+}
+
+.pswd-icon {
+  padding: 5px;
+  cursor: pointer;
+}
+
+.p-input-icon-right input {
+  height: 50px !important;
+  width: 500px;
+}

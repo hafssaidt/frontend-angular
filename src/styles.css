@@ -1,0 +1,119 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeng/resources/primeng.css";
+
+.form-control.ng-touched.ng-invalid {
+  border: 2px solid rgb(229, 107, 107);
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  background-color: #F8F9FA;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Poppins", sans-serif;
+}
+
+p,
+a {
+  font-family: "Nunito", sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  font-family: "Poppins", sans-serif;
+}
+
+form,
+label,
+input,
+textarea {
+  font-family: "Poppins", sans-serif;
+  color: #343a40;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+hr {
+  color: #d5d9dc;
+}
+
+.alrt {
+  color: #e04f44;
+  margin-top: -4px;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  text-wrap: nowrap;
+}
+
+.form-control.ng-touched.ng-invalid {
+  border: #e04f44;
+  box-shadow: 0 0 0 0.06rem #e04f44;
+}
+
+.form-control:focus {
+  border: 0.8px solid #34495e;
+  box-shadow: 0 0 0 0.06rem #34495e;
+  outline: none;
+}
+
+.form-control,
+select {
+  width: 100%;
+  box-sizing: border-box;
+  outline: none;
+  margin-bottom: 8px;
+  font-family: "Poppins", sans-serif;
+  padding: 0.5rem 0.5rem;
+  font-weight: 400;
+  height: 40px;
+  font-size: 1rem;
+  color: #495057;
+  background: #ffffff;
+  border: 1px solid #ced4da;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s,
+    box-shadow 0.2s;
+  appearance: none;
+  border-radius: 6px;
+}
+
+.mat-dialog-header {
+  height: 68px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 16px;
+  border-bottom: 1px solid #ccc;
+}
+
+.done {
+  text-decoration: line-through;
+  color: #343a40;
+}

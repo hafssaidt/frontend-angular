@@ -1,0 +1,144 @@
+.nav1 {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+  background-color: transparent;
+  height: 80px;
+  padding: 15px;
+}
+
+.nav2 {
+  position: fixed;
+  background: #3f51b5;
+  height: 55px;
+  padding-left: 1.5rem;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: transform 0.4s cubic-bezier(0.05, 0.74, 0.2, 0.99);
+}
+
+mat-toolbar-row {
+  justify-content: space-between;
+}
+
+.companyName {
+  text-decoration: none;
+  font-family: "Poppins", sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.spacer {
+  flex: 1;
+}
+
+.mat-button {
+  text-transform: uppercase;
+  margin-left: 10px;
+}
+
+.content {
+  padding: 20px;
+}
+
+.login-button:focus {
+  outline: none;
+}
+
+img {
+  margin-right: 10px;
+  width: 30%;
+}
+
+button {
+  font-size: 15px;
+  font-weight: 500;
+  font-family: "Poppins", sans-serif;
+  padding: 20px;
+  border-radius: 0.5rem;
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+
+.signup {
+  background-color: #3f51b5;
+  border-radius: 8px;
+  color: white !important;
+  width: 100px;
+}
+
+.signup:hover {
+  color: white !important;
+  border-radius: 8px;
+}
+
+.login {
+  margin-right: 5px;
+  font-weight: 400;
+  color: #000033 !important;
+  width: 70px;
+}
+
+.account-icon {
+  color: white;
+}
+
+.nav2 .companyName {
+  color: white;
+}
+
+.edit {
+  color: rgb(73, 80, 87);
+  font-size: 13px;
+  font-weight: 700;
+  font-family: "Poppins", sans-serif;
+}
+
+.profile-btn {
+  background-color: transparent;
+  border-radius: 50%;
+  border: none;
+  font-size: 20px;
+}
+
+::ng-deep .p-menu-overlay-panel {
+  border-radius: 5px;
+}
+
+::ng-deep .p-menu {
+  border-radius: 4px !important;
+  width: 200px !important;
+  height: 110px !important;
+  margin-top: 12px !important;
+  border: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  margin-left: -2px !important;
+}
+
+::ng-deep .p-menu-list {
+  padding: 8px 15px;
+}
+
+::ng-deep .p-menuitem-link {
+  padding: 10px 20px;
+  font-size: 14px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  background-color: transparent;
+}
+
+::ng-deep .p-menuitem-link:hover {
+  background-color: #f6f9fc;
+  border-radius: 16px;
+}
+
+.pi-user {
+  color: white !important;
+}

@@ -1,0 +1,81 @@
+<div class="mat-dialog-container">
+  <div class="mat-dialog-header">
+    <h2 *ngIf="!openEditName; else editCardNameTemp" (click)="openEdit(task.name)" class="title">
+      {{ task.name }}
+    </h2>
+    <ng-template #editCardNameTemp>
+      <form #f="ngForm">
+        <input required type="text" [(ngModel)]="task.name" (blur)="onInputBlur()"
+          (keydown.enter)="saveEditedCardName()" class="form-control input-edit" #name="ngModel" name="name" />
+      </form>
+    </ng-template>
+    <p-button-icon-only mat-dialog-close id="close" [mat-dialog-close]="{ action: 'save', task: task }">
+      <i class="pi pi-times"></i>
+    </p-button-icon-only>
+  </div>
+  <mat-dialog-content>
+    <form #f="ngForm">
+      <div class="form-group">
+        <label for="description">Description</label>
+        <quill-editor [(ngModel)]="task.description" #description="ngModel" name="description" id="description"
+          [style]="{ height: '180px', width: '100%' }" [modules]="modules"></quill-editor>
+      </div>
+
+      <div class="row mt-4">
+        <div class="form-group col-md-6">
+          <label for="startDate">Start Date</label>
+          <input [(ngModel)]="task.startDate" #startDate="ngModel" name="startDate" id="startDate"
+            placeholder="Start Date" class="form-control" type="date" />
+        </div>
+        <div class="form-group col-md-6">
+          <label for="dueDate">Due Date</label>
+          <input [(ngModel)]="task.endDate" #dueDate="ngModel" name="dueDate" id="dueDate" placeholder="Due Date"
+            class="form-control" type="date" />
+        </div>
+      </div>
+      <div *ngIf="task.subTasks.length !== 0">
+        <div class="progress-container">
+          <div class="progress-label">Progress:</div>
+          <div class="progress-value">{{ calculateProgress() }}%</div>
+        </div>
+        <mat-progress-bar mode="determinate" [value]="calculateProgress()" class="progress"
+          mdc-linear-progress></mat-progress-bar>
+      </div>
+      <div class="form-group mt-3">
+        <h3 class="task-heading">
+          <mat-icon class="list-icon">playlist_add_check</mat-icon>tasklist
+        </h3>
+        <input maxlength="100" [(ngModel)]="subTaskDto.name" name="subTaskDto" class="form-control subTask-input"
+          type="text" placeholder="Add a task" />
+        <button *ngIf="addMode" mat-button class="add-btn" (click)="addSubTask(task.id)">
+          Add
+        </button>
+        <div class="buttons">
+          <button *ngIf="!addMode" mat-button class="add-btn" (click)="updateSubTaskName()">
+            Save
+          </button>
+          <button *ngIf="!addMode" class="delete-btn-subtask" (click)="deleteSubTask()">
+            <i class="pi pi-trash"></i>
+          </button>
+        </div>
+      </div>
+
+      <mat-list *ngIf="task.subTasks.length != 0" cdkDropList (cdkDropListDropped)="drop($event)"
+        [cdkDropListData]="task.subTasks">
+        <mat-list-item *ngFor="let subTask of task.subTasks" cdkDrag [cdkDragData]="subTask">
+          <div class="dragCursor">
+            <p-checkbox class="subtask-checkbox" [name]="subTask.name" [(ngModel)]="subTask.completed" (ngModelChange)="
+                updateSubTaskStatus(subTask.id, subTask.completed)
+              " [binary]="true"></p-checkbox>
+            <span class="subtask-name" [class.done]="subTask.completed" (click)="editSubTaskName(subTask)">
+              {{ subTask.name }}</span>
+          </div>
+        </mat-list-item>
+      </mat-list>
+
+      <p-button-icon-only [mat-dialog-close]="{ action: 'delete', task: task }" class="delete-btn">
+        <i class="pi pi-trash"></i>
+      </p-button-icon-only>
+    </form>
+  </mat-dialog-content>
+</div>

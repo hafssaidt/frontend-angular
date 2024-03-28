@@ -1,0 +1,29 @@
+<mat-toolbar *ngIf="!currentUser" class="nav1">
+  <mat-toolbar-row>
+    <a routerLink="/home">
+      <img src="./assets/logo.png" alt="Skyline" />
+    </a>
+    <span class="spacer"></span>
+    <div fxShow="true" fxHide.lt-md="true">
+      <button *ngIf="!currentUser" mat-button (click)="login()" class="login">
+        Login
+      </button>
+      <button *ngIf="!currentUser" mat-button (click)="signup()" class="signup">
+        Sign up
+      </button>
+      <button *ngIf="currentUser" mat-button (click)="logout()">Logout</button>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>
+<mat-toolbar class="nav2" *ngIf="currentUser">
+  <a routerLink="/home">
+    <img src="./assets/logo-white.png" alt="Skyline" />
+  </a>
+  <p-menu [showTransitionOptions]="'0ms'" [hideTransitionOptions]="'0ms'" #menu [popup]="true" [model]="items"></p-menu>
+
+  <button type="button" pButton icon="pi pi-fw pi-user" (click)="menu.toggle($event)" class="profile-btn"></button>
+</mat-toolbar>
+
+<sidebar *ngIf="currentUser"></sidebar>
+
+<router-outlet></router-outlet>
