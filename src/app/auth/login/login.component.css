@@ -89,10 +89,6 @@ a {
   float: right;
 }
 
-.container {
-  display: table-cell;
-}
-
 label {
   font-size: 14px;
   font-weight: 400px;

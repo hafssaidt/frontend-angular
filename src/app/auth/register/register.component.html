@@ -4,118 +4,116 @@
   </mat-card-header>
 
   <mat-card-content>
-    <div class="container">
-      <div *ngIf="errMsg" class="alrt msg mt-2">
-        Email is already in use! <br />
-        Please log in to your account.
-      </div>
-      <div class="col-md-4">
-        <form #f="ngForm">
-          <div class="form-group mt-3">
-            <label for="firstName">First Name</label>
-            <input required minlength="4" maxlength="15" pattern="[a-zA-Z]+" [(ngModel)]="user.firstName" id="firstname"
-              #firstName="ngModel" name="firstname" class="form-control" type="text" />
-          </div>
+    <div *ngIf="errMsg" class="alrt msg mt-2">
+      Email is already in use! <br />
+      Please log in to your account.
+    </div>
+    <div class="col-md-4">
+      <form #f="ngForm">
+        <div class="form-group mt-3">
+          <label for="firstName">First Name</label>
+          <input required minlength="4" maxlength="15" pattern="[a-zA-Z]+" [(ngModel)]="user.firstName" id="firstname"
+            #firstName="ngModel" name="firstname" class="form-control" type="text" />
+        </div>
 
-          <div class="alrt" *ngIf="firstName.touched && !firstName.valid">
-            <div *ngIf="firstName.errors?.['required']">
-              Enter your first name.
-            </div>
-            <div *ngIf="firstName.errors?.['minlength']">
-              First name must be at least 4 characters long!
-            </div>
-            <div *ngIf="firstName.errors?.['pattern']">
-              First name must be alpha!
-            </div>
+        <div class="alrt" *ngIf="firstName.touched && !firstName.valid">
+          <div *ngIf="firstName.errors?.['required']">
+            Enter your first name.
           </div>
+          <div *ngIf="firstName.errors?.['minlength']">
+            First name must be at least 4 characters long!
+          </div>
+          <div *ngIf="firstName.errors?.['pattern']">
+            First name must be alpha!
+          </div>
+        </div>
 
-          <div class="form-group mt-3">
-            <label for="lastName">Last Name</label>
-            <input required minlength="4" maxlength="15" pattern="[a-zA-Z]+" [(ngModel)]="user.lastName"
-              #lastName="ngModel" name="lastname" id="lastname" class="form-control" type="text" />
-          </div>
+        <div class="form-group mt-3">
+          <label for="lastName">Last Name</label>
+          <input required minlength="4" maxlength="15" pattern="[a-zA-Z]+" [(ngModel)]="user.lastName"
+            #lastName="ngModel" name="lastname" id="lastname" class="form-control" type="text" />
+        </div>
 
-          <div class="alrt" *ngIf="lastName.touched && !lastName.valid">
-            <div *ngIf="lastName.errors?.['required']">
-              Enter your last name.
-            </div>
-            <div *ngIf="lastName.errors?.['minlength']">
-              Last name must be at least 4 characters long!
-            </div>
-            <div *ngIf="lastName.errors?.['pattern']">
-              Last name must be alpha!
-            </div>
+        <div class="alrt" *ngIf="lastName.touched && !lastName.valid">
+          <div *ngIf="lastName.errors?.['required']">
+            Enter your last name.
           </div>
+          <div *ngIf="lastName.errors?.['minlength']">
+            Last name must be at least 4 characters long!
+          </div>
+          <div *ngIf="lastName.errors?.['pattern']">
+            Last name must be alpha!
+          </div>
+        </div>
 
-          <div class="form-group mt-3">
-            <label for="email">Email</label>
-            <input required email pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" maxlength="40"
-              [(ngModel)]="user.email" #email="ngModel" name="email" id="email" class="form-control" type="email" />
-          </div>
+        <div class="form-group mt-3">
+          <label for="email">Email</label>
+          <input required email pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" maxlength="40"
+            [(ngModel)]="user.email" #email="ngModel" name="email" id="email" class="form-control" type="email" />
+        </div>
 
-          <div class="alrt" *ngIf="email.touched && !email.valid">
-            <div *ngIf="email.errors?.['required']">Enter your email.</div>
-            <div *ngIf="email.errors?.['pattern']">
-              This is not a valid Email!!
-            </div>
+        <div class="alrt" *ngIf="email.touched && !email.valid">
+          <div *ngIf="email.errors?.['required']">Enter your email.</div>
+          <div *ngIf="email.errors?.['pattern']">
+            This is not a valid Email!!
           </div>
+        </div>
 
-          <div class="form-group mt-2 p-input-icon-right">
-            <label for="pswd">Password</label>
-            <input [type]="hidePassword ? 'password' : 'text'" [required]="confirmPassword !== ''" minlength="8"
-              maxlength="20" [(ngModel)]="user.password" #pswd="ngModel" name="pswd" class="form-control" id="pswd"
-              appNoWhitespace />
-            <i #icon class="pswd-icon" (click)="hidePassword = !this.hidePassword">
-              <i class="pi pi-eye" *ngIf="!hidePassword"></i>
-              <i class="pi pi-eye-slash" *ngIf="hidePassword"></i>
-            </i>
+        <div class="form-group mt-2 p-input-icon-right">
+          <label for="pswd">Password</label>
+          <input [type]="hidePassword ? 'password' : 'text'" [required]="confirmPassword !== ''" minlength="8"
+            maxlength="20" [(ngModel)]="user.password" #pswd="ngModel" name="pswd" class="form-control" id="pswd"
+            appNoWhitespace />
+          <i #icon class="pswd-icon" (click)="hidePassword = !this.hidePassword">
+            <i class="pi pi-eye" *ngIf="!hidePassword"></i>
+            <i class="pi pi-eye-slash" *ngIf="hidePassword"></i>
+          </i>
+        </div>
+        <div class="alrt" *ngIf="pswd.touched && !pswd.valid">
+          <div *ngIf="pswd.errors?.['required']">Enter New password.</div>
+          <div *ngIf="pswd.errors?.['whitespace']">
+            newPassword cannot be empty.
           </div>
-          <div class="alrt" *ngIf="pswd.touched && !pswd.valid">
-            <div *ngIf="pswd.errors?.['required']">Enter New password.</div>
-            <div *ngIf="pswd.errors?.['whitespace']">
-              newPassword cannot be empty.
-            </div>
-            <div *ngIf="pswd.errors?.['minlength']">
-              Password must be at least 8 characters long!
-            </div>
+          <div *ngIf="pswd.errors?.['minlength']">
+            Password must be at least 8 characters long!
           </div>
+        </div>
 
-          <div class="form-group mt-2 p-input-icon-right">
-            <label for="confirmPswd">Confirm Password</label>
-            <input [type]="hideConfPassword ? 'password' : 'text'" [required]="user.password !== ''" minlength="8"
-              maxlength="20" [(ngModel)]="confirmPassword" name="confirmPswd" class="form-control"
-              #confirmPswd="ngModel" type="password" id="confirmPswd" />
-            <i #icon class="pswd-icon" (click)="hideConfPassword = !this.hideConfPassword">
-              <i class="pi pi-eye" *ngIf="!hideConfPassword"></i>
-              <i class="pi pi-eye-slash" *ngIf="hideConfPassword"></i>
-            </i>
+        <div class="form-group mt-2 p-input-icon-right">
+          <label for="confirmPswd">Confirm Password</label>
+          <input [type]="hideConfPassword ? 'password' : 'text'" [required]="user.password !== ''" minlength="8"
+            maxlength="20" [(ngModel)]="confirmPassword" name="confirmPswd" class="form-control" #confirmPswd="ngModel"
+            type="password" id="confirmPswd" />
+          <i #icon class="pswd-icon" (click)="hideConfPassword = !this.hideConfPassword">
+            <i class="pi pi-eye" *ngIf="!hideConfPassword"></i>
+            <i class="pi pi-eye-slash" *ngIf="hideConfPassword"></i>
+          </i>
+        </div>
+        <div class="alrt" *ngIf="confirmPswd.touched && (!confirmPswd.valid || !passwordsMatch())">
+          <div *ngIf="confirmPswd.errors?.['required']">
+            Enter Confirm password.
           </div>
-          <div class="alrt" *ngIf="confirmPswd.touched && (!confirmPswd.valid || !passwordsMatch())">
-            <div *ngIf="confirmPswd.errors?.['required']">
-              Enter Confirm password.
-            </div>
-            <div *ngIf="!passwordsMatch() && confirmPassword != ''">
-              Passwords not match!
-            </div>
-            <div *ngIf="passwordsMatch() && confirmPassword != ''">
-              Passwords match!
-            </div>
+          <div *ngIf="!passwordsMatch() && confirmPassword != ''">
+            Passwords not match!
           </div>
+          <div *ngIf="passwordsMatch() && confirmPassword != ''">
+            Passwords match!
+          </div>
+        </div>
 
-          <div class="form-group mt-2 check">
-            <p-checkbox name="termsChecked" [(ngModel)]="termsChecked" [binary]="true"></p-checkbox>
-            <span class="terms">I have read the Terms and Conditions</span>
-          </div>
-          <div class="form-group mt-3">
-            <button mat-button class="signup-button" [disabled]="!f.valid || !termsChecked" (click)="createAccount()">
-              Sign Up
-            </button>
-          </div>
-        </form>
-      </div>
-      <div class="info">
-        Already have an account? <a routerLink="/login" id="switch">Login </a>
-      </div>
+        <div class="form-group mt-2 check">
+          <p-checkbox name="termsChecked" [(ngModel)]="termsChecked" [binary]="true"></p-checkbox>
+          <span class="terms">I have read the Terms and Conditions</span>
+        </div>
+        <div class="form-group mt-3">
+          <button mat-button class="signup-button" [disabled]="!f.valid || !termsChecked" (click)="createAccount()">
+            Sign Up
+          </button>
+        </div>
+      </form>
+    </div>
+    <div class="info">
+      Already have an account? <a routerLink="/login" id="switch">Login </a>
     </div>
   </mat-card-content>
 </mat-card>

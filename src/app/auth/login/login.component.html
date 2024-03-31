@@ -4,52 +4,50 @@
   </mat-card-header>
 
   <mat-card-content>
-    <div class="container">
-      <div *ngIf="errMsg" class="alrt msg mt-3">
-        Your email or password is incorrect.
+    <div *ngIf="errMsg" class="alrt msg mt-3">
+      Your email or password is incorrect.
+    </div>
+
+    <form #f="ngForm">
+      <div class="form-group mt-4">
+        <label for="email">Email</label>
+        <input required email pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" maxlength="40"
+          [(ngModel)]="loginReq.email" #email="ngModel" name="email" id="email" class="form-control" type="email" />
       </div>
 
-      <form #f="ngForm">
-        <div class="form-group mt-4">
-          <label for="email">Email</label>
-          <input required email pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" maxlength="40"
-            [(ngModel)]="loginReq.email" #email="ngModel" name="email" id="email" class="form-control" type="email" />
+      <div class="alrt" *ngIf="email.touched && !email.valid">
+        <div *ngIf="email.errors?.['required']">Enter your email.</div>
+        <div *ngIf="email.errors?.['pattern']">
+          This is not a valid Email!!
         </div>
-
-        <div class="alrt" *ngIf="email.touched && !email.valid">
-          <div *ngIf="email.errors?.['required']">Enter your email.</div>
-          <div *ngIf="email.errors?.['pattern']">
-            This is not a valid Email!!
-          </div>
-        </div>
-
-        <div class="form-group mt-2 p-input-icon-right">
-          <label for="password">Password</label>
-          <input [type]="hidePassword ? 'password' : 'text'" required minlength="8" maxlength="20"
-            [(ngModel)]="loginReq.password" #password="ngModel" name="password" class="form-control" type="password"
-            id="password" />
-          <i #icon class="pswd-icon" (click)="hidePassword = !this.hidePassword">
-            <i class="pi pi-eye" *ngIf="!hidePassword"></i>
-            <i class="pi pi-eye-slash" *ngIf="hidePassword"></i>
-          </i>
-        </div>
-        <div class="alrt" *ngIf="password.touched && !password.valid">
-          <div *ngIf="password.errors?.['required']">Enter your password.</div>
-          <div *ngIf="password.errors?.['minlength']">
-            password must be at least 4 characters long!
-          </div>
-        </div>
-        <div class="form-group mt-4">
-          <button mat-button class="login-button" [disabled]="!f.valid" (click)="authUser()">
-            Login
-          </button>
-        </div>
-      </form>
-
-      <div class="mt-2 info">
-        Need an account?
-        <a routerLink="/signup" id="switch"><span>Sign Up</span> </a>
       </div>
+
+      <div class="form-group mt-2 p-input-icon-right">
+        <label for="password">Password</label>
+        <input [type]="hidePassword ? 'password' : 'text'" required minlength="8" maxlength="20"
+          [(ngModel)]="loginReq.password" #password="ngModel" name="password" class="form-control" type="password"
+          id="password" />
+        <i #icon class="pswd-icon" (click)="hidePassword = !this.hidePassword">
+          <i class="pi pi-eye" *ngIf="!hidePassword"></i>
+          <i class="pi pi-eye-slash" *ngIf="hidePassword"></i>
+        </i>
+      </div>
+      <div class="alrt" *ngIf="password.touched && !password.valid">
+        <div *ngIf="password.errors?.['required']">Enter your password.</div>
+        <div *ngIf="password.errors?.['minlength']">
+          password must be at least 4 characters long!
+        </div>
+      </div>
+      <div class="form-group mt-4">
+        <button mat-button class="login-button" [disabled]="!f.valid" (click)="authUser()">
+          Login
+        </button>
+      </div>
+    </form>
+
+    <div class="mt-2 info">
+      Need an account?
+      <a routerLink="/signup" id="switch"><span>Sign Up</span> </a>
     </div>
   </mat-card-content>
 </mat-card>
