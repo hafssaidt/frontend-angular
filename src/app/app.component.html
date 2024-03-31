@@ -16,7 +16,7 @@
   </mat-toolbar-row>
 </mat-toolbar>
 <mat-toolbar class="nav2" *ngIf="currentUser">
-  <a routerLink="/home">
+  <a routerLink="/home" class="companyName">
     <img src="./assets/logo-white.png" alt="Skyline" />
   </a>
   <p-menu [showTransitionOptions]="'0ms'" [hideTransitionOptions]="'0ms'" #menu [popup]="true" [model]="items"></p-menu>
