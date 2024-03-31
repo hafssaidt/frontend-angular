@@ -123,3 +123,7 @@ mat-dialog-actions {
   height: 50px !important;
   width: 502px;
 }
+
+.pi-check {
+  font-size: 14px;
+}

@@ -1,3 +1,4 @@
+import { ProjectStateService } from "./../../services/project-state.service";
 import { Router, RouterModule } from "@angular/router";
 import { Component } from "@angular/core";
 import { AccountService } from "../account.service";
@@ -40,7 +41,8 @@ export class LoginComponent {
     private router: Router,
     private tokenService: TokenService,
     private accountService: AccountService,
-    private userService: UserService
+    private userService: UserService,
+    private projectStateService: ProjectStateService
   ) {}
 
   authUser() {
@@ -63,6 +65,7 @@ export class LoginComponent {
   handleResponse(data: any) {
     this.tokenService.handle(data);
     this.accountService.changeStatus(true);
+    this.projectStateService.fetchProjects();
     this.router.navigateByUrl("/tasks");
   }
 }

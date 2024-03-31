@@ -42,17 +42,17 @@
           mdc-linear-progress></mat-progress-bar>
       </div>
       <div class="form-group mt-3">
-        <h3 class="task-heading">
-          <mat-icon class="list-icon">playlist_add_check</mat-icon>tasklist
-        </h3>
+        <span class="task-heading">
+          <i class="pi pi-check-square"></i>Tasklist
+        </span>
         <input maxlength="100" [(ngModel)]="subTaskDto.name" name="subTaskDto" class="form-control subTask-input"
           type="text" placeholder="Add a task" />
         <button *ngIf="addMode" mat-button class="add-btn" (click)="addSubTask(task.id)">
           Add
         </button>
         <div class="buttons">
-          <button *ngIf="!addMode" mat-button class="add-btn" (click)="updateSubTaskName()">
-            Save
+          <button *ngIf="!addMode" mat-button class="add-btn save-btn" (click)="updateSubTaskName()">
+            <i class="pi pi-check"></i> Save
           </button>
           <button *ngIf="!addMode" class="delete-btn-subtask" (click)="deleteSubTask()">
             <i class="pi pi-trash"></i>

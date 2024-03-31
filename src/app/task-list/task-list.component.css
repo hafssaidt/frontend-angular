@@ -9,13 +9,12 @@ mat-card {
 }
 
 .mat-table-container {
-  width: 96.5%;
   margin-top: 20px;
   margin-left: 1.8%;
 }
 
 mat-table {
-  border-collapse: collapse;
+  width: 96.5%;
   background-color: #fff;
   font-family: "Poppins", sans-serif;
   border-radius: 4px;
@@ -45,16 +44,11 @@ mat-row {
   font-weight: 500;
   color: rgb(73, 80, 87);
   line-height: normal !important;
+
 }
 
 mat-row:hover {
   background-color: #f8f9fa;
-}
-
-.truncate {
-  max-width: 800px;
-  overflow: hidden;
-  white-space: nowrap;
 }
 
 mat-cell-actions {
@@ -165,6 +159,7 @@ td {
   font-family: "Poppins", sans-serif;
   color: rgb(65, 65, 65);
   display: flex;
+  padding-left: 40px !important;
 }
 
 .pi-clock {

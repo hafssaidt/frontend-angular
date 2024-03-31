@@ -1,22 +1,20 @@
-import { Injectable } from '@angular/core';
-import { BehaviorSubject, NotFoundError, Observable } from 'rxjs';
-import { Project } from '../models/project';
-import { ProjectsService } from './projects.service';
-import { AppError } from '../common/app-error';
-import { BadInput } from '../common/bad-input';
+import { Injectable } from "@angular/core";
+import { BehaviorSubject, NotFoundError, Observable } from "rxjs";
+import { Project } from "../models/project";
+import { ProjectsService } from "./projects.service";
+import { AppError } from "../common/app-error";
+import { BadInput } from "../common/bad-input";
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: "root",
 })
 export class ProjectStateService {
   private projectsSubject = new BehaviorSubject<Project[]>([]);
   projects$: Observable<Project[]> = this.projectsSubject.asObservable();
 
-  constructor(private projectsService: ProjectsService) {
-    this.fetchProjects();
-  }
+  constructor(private projectsService: ProjectsService) {}
 
-  private fetchProjects() {
+  fetchProjects() {
     this.projectsService.getAllProjects().subscribe(
       (projects) => {
         this.projectsSubject.next(
@@ -24,8 +22,8 @@ export class ProjectStateService {
         );
       },
       (error: AppError) => {
-        if (error instanceof NotFoundError) alert('Failed to fetch projects');
-        else console.log('Unexpected error');
+        if (error instanceof NotFoundError) alert("Failed to fetch projects");
+        else console.log("Unexpected error");
       }
     );
   }
@@ -39,7 +37,7 @@ export class ProjectStateService {
       },
       (error: AppError) => {
         if (error instanceof BadInput) alert(error.message);
-        else console.log('Unexpected error');
+        else console.log("Unexpected error");
       }
     );
   }
@@ -56,7 +54,7 @@ export class ProjectStateService {
       },
       (error: AppError) => {
         if (error instanceof BadInput) alert(error.message);
-        else console.log('Unexpected error');
+        else console.log("Unexpected error");
       }
     );
   }
@@ -72,7 +70,7 @@ export class ProjectStateService {
       },
       (error: AppError) => {
         if (error instanceof BadInput) alert(error.message);
-        else console.log('Unexpected error');
+        else console.log("Unexpected error");
       }
     );
   }
@@ -86,7 +84,7 @@ export class ProjectStateService {
       },
       (error: AppError) => {
         if (error instanceof BadInput) alert(error.message);
-        else console.log('Unexpected error');
+        else console.log("Unexpected error");
       }
     );
   }
@@ -99,9 +97,13 @@ export class ProjectStateService {
       },
       (error: AppError) => {
         if (error instanceof NotFoundError)
-          alert('This project is already deleted');
-        else console.log('Unexpected error');
+          alert("This project is already deleted");
+        else console.log("Unexpected error");
       }
     );
+  }
+
+  setEmptyProjects() {
+    this.projectsSubject.next([]);
   }
 }

@@ -1,29 +1,29 @@
-import { CountTasksInKanbanItem } from './../models/count-tasks-kanban';
-import { KanbanItem } from './../models/kanban-item';
-import { HttpClient, HttpParams } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { Task } from '../models/task';
-import { CountTask } from '../models/count-task';
-import { ProgressProject } from '../models/progress-project';
-import { CountTasksDate } from '../models/count-tasks-date';
+import { CountTasksInKanbanItem } from "./../models/count-tasks-kanban";
+import { HttpClient, HttpParams } from "@angular/common/http";
+import { Injectable } from "@angular/core";
+import { Observable } from "rxjs";
+import { Task } from "../models/task";
+import { CountTask } from "../models/count-task";
+import { ProgressProject } from "../models/progress-project";
+import { CountTasksDate } from "../models/count-tasks-date";
+import { environment } from "../../environments/environment.dev";
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: "root",
 })
 export class TaskService {
-  private API_URL = 'http://localhost:8080/api/tasks';
+  private API_URL = `${environment.URL}/api/tasks`;
   constructor(public http: HttpClient) {}
 
   public getIndependentTasks(completed: boolean): Observable<Task[]> {
-    let params = new HttpParams().set('completed', completed);
+    let params = new HttpParams().set("completed", completed);
     return this.http.get<Task[]>(`${this.API_URL}`, { params });
   }
   public getTasksInProject(
     projectId: string,
     completed: boolean
   ): Observable<Task[]> {
-    let params = new HttpParams().set('completed', completed);
+    let params = new HttpParams().set("completed", completed);
     return this.http.get<Task[]>(`${this.API_URL}/project/${projectId}`, {
       params,
     });
@@ -47,7 +47,7 @@ export class TaskService {
     return this.http.put<Task>(`${this.API_URL}/${taskId}`, task);
   }
   public updateTaskName(taskId: string, name: string): Observable<Task> {
-    let params = new HttpParams().set('name', name);
+    let params = new HttpParams().set("name", name);
     return this.http.patch<Task>(
       `${this.API_URL}/${taskId}/name`,
       {},
@@ -58,7 +58,7 @@ export class TaskService {
     taskId: string,
     completed: boolean
   ): Observable<Task> {
-    let params = new HttpParams().set('completed', completed);
+    let params = new HttpParams().set("completed", completed);
     return this.http.patch<Task>(
       `${this.API_URL}/${taskId}/status`,
       {},
@@ -72,7 +72,7 @@ export class TaskService {
     projectId: string,
     completed: boolean
   ): Observable<Task> {
-    let params = new HttpParams().set('completed', completed);
+    let params = new HttpParams().set("completed", completed);
     return this.http.patch<Task>(
       `${this.API_URL}/${taskId}/project/${projectId}/status`,
       {},
@@ -85,7 +85,7 @@ export class TaskService {
     taskId: string,
     newOrder: number
   ): Observable<Task[]> {
-    const params = new HttpParams().set('newOrder', newOrder);
+    const params = new HttpParams().set("newOrder", newOrder);
     return this.http.patch<Task[]>(
       `${this.API_URL}/${taskId}/order`,
       {},
@@ -98,7 +98,7 @@ export class TaskService {
     taskId: string,
     newOrder: number
   ): Observable<Task[]> {
-    let params = new HttpParams().set('newOrder', newOrder);
+    let params = new HttpParams().set("newOrder", newOrder);
     return this.http.patch<Task[]>(
       `${this.API_URL}/${taskId}/kanban/order`,
       {},
@@ -112,7 +112,7 @@ export class TaskService {
     projectId: string,
     newOrder: number
   ): Observable<Task[]> {
-    let params = new HttpParams().set('newOrder', newOrder);
+    let params = new HttpParams().set("newOrder", newOrder);
     return this.http.patch<Task[]>(
       `${this.API_URL}/${taskId}/project/${projectId}/order`,
       {},
@@ -126,7 +126,7 @@ export class TaskService {
     taskId: string,
     newOrder: number
   ): Observable<Task[]> {
-    let params = new HttpParams().set('newOrder', newOrder);
+    let params = new HttpParams().set("newOrder", newOrder);
     return this.http.patch<Task[]>(
       `${this.API_URL}/${taskId}/kanban/${newKanbanItemId}/move`,
       {},

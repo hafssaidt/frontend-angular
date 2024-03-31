@@ -1,13 +1,14 @@
-import { Observable } from 'rxjs';
-import { HttpClient, HttpParams } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { SubTask } from '../models/sub-task';
+import { Observable } from "rxjs";
+import { HttpClient, HttpParams } from "@angular/common/http";
+import { Injectable } from "@angular/core";
+import { SubTask } from "../models/sub-task";
+import { environment } from "../../environments/environment.dev";
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: "root",
 })
 export class SubTaskService {
-  private API_URL = 'http://localhost:8080/api/subTasks';
+  private API_URL = `${environment.URL}/api/subTasks`;
   constructor(public http: HttpClient) {}
 
   public getAllSubTasks(taskId: String): Observable<SubTask[]> {
@@ -20,7 +21,7 @@ export class SubTaskService {
     subTaskId: string,
     name: string
   ): Observable<SubTask> {
-    const params = new HttpParams().set('name', name);
+    const params = new HttpParams().set("name", name);
     return this.http.patch<SubTask>(
       `${this.API_URL}/${subTaskId}/name`,
       {},
@@ -33,7 +34,7 @@ export class SubTaskService {
     subTaskId: string,
     status: boolean
   ): Observable<SubTask> {
-    const params = new HttpParams().set('completed', status);
+    const params = new HttpParams().set("completed", status);
     return this.http.patch<SubTask>(
       `${this.API_URL}/${subTaskId}/status`,
       {},
@@ -47,7 +48,7 @@ export class SubTaskService {
     taskId: string,
     newOrder: number
   ): Observable<SubTask[]> {
-    const params = new HttpParams().set('newOrder', newOrder);
+    const params = new HttpParams().set("newOrder", newOrder);
     return this.http.patch<SubTask[]>(
       `${this.API_URL}/${subTaskId}/task/${taskId}/order`,
       {},

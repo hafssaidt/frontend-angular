@@ -1,13 +1,14 @@
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { User } from '../models/user';
+import { environment } from "../../environments/environment.dev";
+import { HttpClient, HttpErrorResponse } from "@angular/common/http";
+import { Injectable } from "@angular/core";
+import { Observable } from "rxjs";
+import { User } from "../models/user";
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: "root",
 })
 export class UserService {
-  private API_URL = 'http://localhost:8080/api/users';
+  private API_URL = `${environment.URL}/api/users`;
   constructor(private http: HttpClient) {}
 
   public createAccount(user: User): Observable<User> {

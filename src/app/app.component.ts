@@ -14,6 +14,7 @@ import { ButtonModule } from "primeng/button";
 import { User } from "./models/user";
 import { UserComponent } from "./user/user.component";
 import { MatDialog } from "@angular/material/dialog";
+import { ProjectStateService } from "./services/project-state.service";
 
 @Component({
   selector: "app-root",
@@ -64,6 +65,7 @@ export class AppComponent {
     private tokenService: TokenService,
     private accountService: AccountService,
     private userService: UserService,
+    private projectStateService: ProjectStateService,
     public dialog: MatDialog
   ) {}
 
@@ -82,6 +84,7 @@ export class AppComponent {
   logout() {
     this.tokenService.remove();
     this.accountService.changeStatus(false);
+    this.projectStateService.setEmptyProjects();
     this.router.navigateByUrl("/login");
   }
   getProfile() {

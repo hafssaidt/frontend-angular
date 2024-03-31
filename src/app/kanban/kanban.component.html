@@ -45,7 +45,7 @@
     </mat-card-content>
     <mat-card-actions>
       <button mat-button class="add-card-btn" *ngIf="!stateCardAdd[i]; else addCard" (click)="stateCardAdd[i] = true">
-        <mat-icon>add</mat-icon> New Card
+        <i class="pi pi-plus"></i> New Card
       </button>
       <ng-template #addCard>
         <form #f="ngForm">
@@ -64,7 +64,7 @@
     </mat-card-actions>
   </mat-card>
   <button *ngIf="!showInputList; else addList" mat-button class="new-list-btn" (click)="showInputList = true">
-    <mat-icon>add</mat-icon> New List
+    <i class="pi pi-plus"></i> New List
   </button>
   <ng-template #addList>
     <mat-card class="create-card-list card-kanban-item">

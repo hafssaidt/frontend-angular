@@ -1,28 +1,24 @@
-import { MatIconModule } from '@angular/material/icon';
-import { Component, OnInit } from '@angular/core';
-import { MatCardModule } from '@angular/material/card';
-import { MatDialog, MatDialogModule } from '@angular/material/dialog';
-import { ProjectComponent } from '../project/project.component';
-import { MatTableModule } from '@angular/material/table';
+import { MatIconModule } from "@angular/material/icon";
+import { Component, OnInit } from "@angular/core";
+import { MatCardModule } from "@angular/material/card";
+import { MatDialog, MatDialogModule } from "@angular/material/dialog";
+import { ProjectComponent } from "../project/project.component";
+import { MatTableModule } from "@angular/material/table";
 
 import {
   CdkDragDrop,
   DragDropModule,
   moveItemInArray,
-} from '@angular/cdk/drag-drop';
-import { MatButton } from '@angular/material/button';
-import { CommonModule } from '@angular/common';
-import { Project } from '../models/project';
-import { ProjectsService } from '../services/projects.service';
-import { NotFoundError } from 'rxjs';
-import { AppError } from '../common/app-error';
-import { BadInput } from '../common/bad-input';
-import { Priority } from '../models/priority';
-import { Router } from '@angular/router';
-import { ProjectStateService } from '../services/project-state.service';
+} from "@angular/cdk/drag-drop";
+import { MatButton } from "@angular/material/button";
+import { CommonModule } from "@angular/common";
+import { Project } from "../models/project";
+import { Priority } from "../models/priority";
+import { Router } from "@angular/router";
+import { ProjectStateService } from "../services/project-state.service";
 
 @Component({
-  selector: 'projects',
+  selector: "projects",
   standalone: true,
   imports: [
     CommonModule,
@@ -33,14 +29,14 @@ import { ProjectStateService } from '../services/project-state.service';
     MatIconModule,
     MatButton,
   ],
-  templateUrl: './projects.component.html',
-  styleUrl: './projects.component.css',
+  templateUrl: "./projects.component.html",
+  styleUrl: "./projects.component.css",
 })
 export class ProjectsComponent implements OnInit {
   project: Project = {
-    id: '',
-    name: '',
-    description: '',
+    id: "",
+    name: "",
+    description: "",
     priority: Priority.LOW,
     projectOrder: 0,
     startDate: null,
@@ -48,12 +44,11 @@ export class ProjectsComponent implements OnInit {
     tasks: [],
   };
   status: boolean = true;
-  errorMessage: string = '';
+  errorMessage: string = "";
 
-  displayedColumns: string[] = ['order', 'name', 'priority', 'dueDate', 'edit'];
+  displayedColumns: string[] = ["order", "name", "priority", "dueDate", "edit"];
   dragDisabled = true;
   dataSource: Project[] = [];
-  audio: HTMLAudioElement = new Audio('./assets/cute.mp3');
   constructor(
     private projectStateService: ProjectStateService,
     private dialog: MatDialog,
@@ -81,20 +76,20 @@ export class ProjectsComponent implements OnInit {
   getPriorityClass(priority: Priority): string {
     switch (priority) {
       case Priority.LOW:
-        return 'low-priority';
+        return "low-priority";
       case Priority.MEDIUM:
-        return 'medium-priority';
+        return "medium-priority";
       case Priority.HIGH:
-        return 'high-priority';
+        return "high-priority";
       default:
-        return '';
+        return "";
     }
   }
 
   addProject() {
     const dialogRef = this.dialog.open(ProjectComponent, {
-      width: '660px',
-      height: '560px',
+      width: "660px",
+      height: "560px",
       data: {
         project: this.project,
         isAddMode: true,
@@ -104,9 +99,9 @@ export class ProjectsComponent implements OnInit {
       if (result) {
         this.projectStateService.addProject(result.project);
         this.project = {
-          id: '',
-          name: '',
-          description: '',
+          id: "",
+          name: "",
+          description: "",
           priority: Priority.LOW,
           projectOrder: 0,
           startDate: null,
@@ -126,8 +121,8 @@ export class ProjectsComponent implements OnInit {
   }
   viewProject(projectViewed: Project) {
     const dialogRef = this.dialog.open(ProjectComponent, {
-      width: '660px',
-      height: '560px',
+      width: "660px",
+      height: "560px",
       data: {
         project: projectViewed,
         isAddMode: false,
@@ -135,9 +130,9 @@ export class ProjectsComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe((result: any) => {
       if (result) {
-        if (result.action === 'save')
+        if (result.action === "save")
           this.updateProject(projectViewed.id, result.project);
-        if (result.action === 'delete') this.deleteProject(projectViewed);
+        if (result.action === "delete") this.deleteProject(projectViewed);
       }
     });
   }
