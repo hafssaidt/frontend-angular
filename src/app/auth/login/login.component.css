@@ -93,6 +93,8 @@ label {
   font-size: 14px;
   font-weight: 400px;
   color: rgb(107, 109, 124);
+  display: block;
+
 }
 
 a {
