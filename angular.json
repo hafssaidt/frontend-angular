@@ -26,7 +26,6 @@
             ],
             "styles": [
               "@angular/material/prebuilt-themes/deeppurple-amber.css",
-              "bootstrap/dist/css/bootstrap.css",
               "quill/dist/quill.core.css",
               "quill/dist/quill.snow.css",
               "quill/dist/quill.bubble.css",
