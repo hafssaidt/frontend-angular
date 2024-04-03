@@ -39,6 +39,8 @@ mat-dialog-actions {
   transition: background-color 0.3s ease, transform 0.3s ease;
   margin-right: 25px;
   margin-top: -15px;
+  cursor: pointer !important;
+
 }
 
 #close:hover {
@@ -128,10 +130,12 @@ h3 {
   border-radius: 6px;
   font-family: "Poppins", sans-serif;
   padding: 8px;
+  cursor: pointer !important;
 }
 
 .save-btn {
   width: 74px;
+  cursor: pointer !important;
 }
 
 .delete-btn-subtask {
@@ -144,6 +148,8 @@ h3 {
   padding: 6px 8px;
   margin-left: 5px;
   border: solid 1px #3f51b5;
+  cursor: pointer !important;
+
 }
 
 .progress-container {
@@ -214,6 +220,8 @@ h3 {
   border: 1px solid #3f51b5;
   align-items: center;
   padding: 9px 11px;
+  cursor: pointer !important;
+
 }
 
 .pi-trash {
@@ -225,10 +233,12 @@ h3 {
   border-radius: 8px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
   border: 0 none;
+  scrollbar-color: #d4d4d4 #00000026;
+
 }
 
 ::ng-deep .mat-mdc-progress-bar {
-  --mdc-linear-progress-active-indicator-color: #3f51b5;
+  --mdc-linear-progress-active-indicator-color: #FF4081;
 }
 
 p-checkbox {
@@ -236,8 +246,8 @@ p-checkbox {
 }
 
 ::ng-deep .p-checkbox .p-checkbox-box.p-highlight {
-  border-color: #3f51b5;
-  background: #3f51b5;
+  border-color: #FF4081;
+  background: #FF4081;
 }
 
 .pi-check-square {

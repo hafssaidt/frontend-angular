@@ -1,6 +1,7 @@
-import { HttpInterceptorFn } from '@angular/common/http';
-import { TokenService } from '../auth/token.service';
-import { inject } from '@angular/core';
+import { HttpInterceptorFn } from "@angular/common/http";
+import { TokenService } from "../auth/token.service";
+import { inject } from "@angular/core";
+import { LoadingService } from "../services/loading.service";
 
 export const loggerInterceptor: HttpInterceptorFn = (req, next) => {
   console.log(`Request is on its way to ${req.url}`);
@@ -8,7 +9,7 @@ export const loggerInterceptor: HttpInterceptorFn = (req, next) => {
   const token = tokenService.getToken();
   if (token) {
     req = req.clone({
-      headers: req.headers.set('Authorization', `Bearer ${token}`),
+      headers: req.headers.set("Authorization", `Bearer ${token}`),
     });
   }
 

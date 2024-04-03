@@ -46,6 +46,8 @@ mat-dialog-actions {
   background-color: #3f51b5;
   color: white !important;
   border: 1px solid #3f51b5;
+  cursor: pointer !important;
+
 }
 
 .save:hover {
@@ -64,6 +66,7 @@ mat-dialog-actions {
 .delete {
   color: rgb(90, 90, 90);
   border: 1px solid rgb(90, 90, 90);
+  cursor: pointer !important;
 }
 
 #close {
@@ -81,6 +84,7 @@ mat-dialog-actions {
   transition: background-color 0.3s ease, transform 0.3s ease;
   margin-right: 25px;
   margin-top: -15px;
+  cursor: pointer !important;
 }
 
 #close:hover {
@@ -115,6 +119,8 @@ mat-dialog-actions {
   border-radius: 8px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
   border: 0 none;
+  scrollbar-color: #d4d4d4 #00000026;
+
 }
 
 .buttons {
@@ -133,6 +139,8 @@ mat-dialog-actions {
   align-items: center;
   padding: 9px 11px;
   margin-right: 10px;
+  cursor: pointer !important;
+
 }
 
 .pi-trash {

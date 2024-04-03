@@ -1,6 +1,5 @@
 <div cdkDropListGroup class="cards-container" cdkDropList cdkDropListOrientation="horizontal"
   [cdkDropListData]="kanbanItems" (cdkDropListDropped)="dropKanbanItem($event)">
-
   <mat-card cdkDrag [cdkDragData]="element" *ngFor="let element of kanbanItems; let i = index" class="card-kanban-item">
     <mat-card-header class="kanban-item-header">
       <mat-card-title *ngIf="!stateKanbanEdit[i]; else editListNameTemp" (click)="openEdit(i, element.name)"
@@ -14,7 +13,7 @@
             #name="ngModel" name="name" />
         </form>
       </ng-template>
-      <button mat-icon-button class="icon-menu-btn" [matMenuTriggerFor]="menu">
+      <button class="icon-menu-btn" [matMenuTriggerFor]="menu">
         <i class="pi pi-ellipsis-h"></i>
       </button>
       <mat-menu class="menu" #menu="matMenu">
@@ -35,7 +34,8 @@
         </mat-card-header>
         <mat-card-content class="task-content">
           <mat-progress-bar *ngIf="task.subTasks?.length !== 0" mode="determinate" [value]="calculateProgress(task)"
-            class="progress"></mat-progress-bar>
+            class="progress">
+          </mat-progress-bar>
         </mat-card-content>
         <mat-card-footer class="date">
           <i *ngIf="task.endDate" class="pi pi-clock"></i>
@@ -45,7 +45,7 @@
     </mat-card-content>
     <mat-card-actions>
       <button mat-button class="add-card-btn" *ngIf="!stateCardAdd[i]; else addCard" (click)="stateCardAdd[i] = true">
-        <i class="pi pi-plus"></i> New Card
+        <i class="pi pi-plus"></i> New card
       </button>
       <ng-template #addCard>
         <form #f="ngForm">
@@ -64,12 +64,12 @@
     </mat-card-actions>
   </mat-card>
   <button *ngIf="!showInputList; else addList" mat-button class="new-list-btn" (click)="showInputList = true">
-    <i class="pi pi-plus"></i> New List
+    <i class="pi pi-plus"></i> New list
   </button>
   <ng-template #addList>
     <mat-card class="create-card-list card-kanban-item">
       <form #f="ngForm">
-        <input required type="text" [(ngModel)]="kanbanItem.name" placeholder="Title" class="form-control input-add add"
+        <input required type="text" [(ngModel)]="kanbanItem.name" placeholder="Title" class="form-control card-input"
           #name="ngModel" name="name" appNoWhitespace />
         <div class="buttons">
           <button mat-button class="add-list-btn" (click)="createList()">

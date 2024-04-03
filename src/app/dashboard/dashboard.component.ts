@@ -1,23 +1,23 @@
-import { CountProjectsByPriority } from './../models/count-projects-priority';
-import { ProjectsService } from './../services/projects.service';
-import { CountTask } from './../models/count-task';
-import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
-import { MatCardModule } from '@angular/material/card';
-import { Chart, registerables } from 'chart.js';
-import { TaskService } from '../services/task.service';
-import { Priority } from '../models/priority';
-import { ProgressProject } from '../models/progress-project';
-import { CountTasksInKanbanItem } from '../models/count-tasks-kanban';
-import { CountTasksDate } from '../models/count-tasks-date';
-import 'chartjs-adapter-date-fns';
+import { CountProjectsByPriority } from "./../models/count-projects-priority";
+import { ProjectsService } from "./../services/projects.service";
+import { CountTask } from "./../models/count-task";
+import { CommonModule } from "@angular/common";
+import { Component, OnInit } from "@angular/core";
+import { MatCardModule } from "@angular/material/card";
+import { Chart, registerables } from "chart.js";
+import { TaskService } from "../services/task.service";
+import { Priority } from "../models/priority";
+import { ProgressProject } from "../models/progress-project";
+import { CountTasksInKanbanItem } from "../models/count-tasks-kanban";
+import { CountTasksDate } from "../models/count-tasks-date";
+import "chartjs-adapter-date-fns";
 Chart.register(...registerables);
 @Component({
-  selector: 'app-dashboard',
+  selector: "app-dashboard",
   standalone: true,
   imports: [CommonModule, MatCardModule],
-  templateUrl: './dashboard.component.html',
-  styleUrl: './dashboard.component.css',
+  templateUrl: "./dashboard.component.html",
+  styleUrl: "./dashboard.component.css",
 })
 export class DashboardComponent implements OnInit {
   countCompletedTasks!: number;
@@ -67,29 +67,29 @@ export class DashboardComponent implements OnInit {
     });
   }
   createLineChart() {
-    const ctx4: any = document.getElementById('lineChart') as HTMLElement;
+    const ctx4: any = document.getElementById("lineChart") as HTMLElement;
     new Chart(ctx4, {
-      type: 'line',
+      type: "line",
       data: {
         labels: this.dates,
         datasets: [
           {
-            label: 'Task Count',
+            label: "Task Count",
             data: this.countTasksByDates,
-            borderColor: '#64B5F6',
-            backgroundColor: '#64B5F6',
-            cubicInterpolationMode: 'monotone',
+            borderColor: "#64B5F6",
+            backgroundColor: "#64B5F6",
+            cubicInterpolationMode: "monotone",
           },
         ],
       },
       options: {
         scales: {
           x: {
-            type: 'time',
+            type: "time",
             time: {
-              unit: 'day',
+              unit: "day",
               displayFormats: {
-                day: 'MMM dd',
+                day: "MMM dd",
               },
             },
           },
@@ -112,22 +112,22 @@ export class DashboardComponent implements OnInit {
   }
 
   createDoughnutChart() {
-    const ctx1: any = document.getElementById('doughnutChart') as HTMLElement;
+    const ctx1: any = document.getElementById("doughnutChart") as HTMLElement;
     new Chart(ctx1, {
-      type: 'doughnut',
+      type: "doughnut",
       data: {
         labels: this.priorities,
         datasets: [
           {
-            label: 'Count',
+            label: "Count",
             data: this.countProjByPriority,
-            backgroundColor: ['#64B5F6', '#4DB6AC', '#7986CB'],
+            backgroundColor: ["#64B5F6", "#4DB6AC", "#7986CB"],
           },
         ],
       },
       options: {
         responsive: true,
-        cutout: '60%',
+        cutout: "60%",
       },
     });
   }
@@ -146,27 +146,27 @@ export class DashboardComponent implements OnInit {
   }
   createStackBarChart(): void {
     const ctx2 = document.getElementById(
-      'stackedBarChart'
+      "stackedBarChart"
     ) as HTMLCanvasElement;
     new Chart(ctx2, {
-      type: 'bar',
+      type: "bar",
       data: {
         labels: this.projectNames.map((name) =>
-          name.length > 14 ? name.substring(0, 14) + '...' : name
+          name.length > 14 ? name.substring(0, 14) + "..." : name
         ),
         datasets: [
           {
-            label: 'Completed Tasks',
+            label: "Completed Tasks",
             data: this.countCompTasksInProj,
-            backgroundColor: '#7986CB',
-            borderColor: '#7986CB',
+            backgroundColor: "#6573C3",
+            borderColor: "#6573C3",
             borderWidth: 1,
           },
           {
-            label: 'Incomplete Tasks',
+            label: "Incomplete Tasks",
             data: this.countIncompTasksInProj,
-            backgroundColor: '#E4E7EB',
-            borderColor: '#E4E7EB',
+            backgroundColor: "#E4E7EB",
+            borderColor: "#E4E7EB",
             borderWidth: 1,
           },
         ],
@@ -196,18 +196,18 @@ export class DashboardComponent implements OnInit {
   }
 
   createBarChart() {
-    const ctx3: any = document.getElementById('barChart') as HTMLElement;
+    const ctx3: any = document.getElementById("barChart") as HTMLElement;
     new Chart(ctx3, {
-      type: 'bar',
+      type: "bar",
       data: {
         labels: this.kanbanNames.map((name) =>
-          name.length > 14 ? name.substring(0, 14) + '...' : name
+          name.length > 14 ? name.substring(0, 14) + "..." : name
         ),
         datasets: [
           {
-            label: 'Count',
+            label: "Count",
             data: this.countTasksInKanbans,
-            backgroundColor: ['#64B5F6'],
+            backgroundColor: ["#64B5F6"],
           },
         ],
       },

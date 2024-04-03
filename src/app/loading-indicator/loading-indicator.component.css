@@ -1,0 +1,17 @@
+.spinner-container {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.32) !important;
+    z-index: 2000;
+}
+
+::ng-deep .mat-mdc-progress-spinner .mdc-circular-progress__indeterminate-circle-graphic {
+
+    stroke: #32429b !important;
+}

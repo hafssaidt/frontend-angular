@@ -1,8 +1,13 @@
 import { environment } from "../../environments/environment.dev";
-import { HttpClient, HttpErrorResponse } from "@angular/common/http";
+import {
+  HttpClient,
+  HttpContext,
+  HttpErrorResponse,
+} from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { User } from "../models/user";
+import { SkipLoading } from "../interceptors/loader.interceptor";
 
 @Injectable({
   providedIn: "root",

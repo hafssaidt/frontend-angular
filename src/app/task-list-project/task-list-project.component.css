@@ -105,8 +105,8 @@ th {
   margin-bottom: 10px;
   font-family: "Poppins", sans-serif;
   background-color: transparent;
-  height: 38px;
-  width: 144px;
+  height: 40px;
+  width: 142px;
   padding: 5px 3px;
   font-size: 14px;
   font-weight: 500;
@@ -191,8 +191,8 @@ p-checkbox {
 }
 
 ::ng-deep .p-checkbox .p-checkbox-box.p-highlight {
-  border-color: #3f51b5;
-  background: #3f51b5;
+  border-color: #FF4081;
+  background: #FF4081;
 }
 
 .pi-plus {

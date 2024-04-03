@@ -1,7 +1,7 @@
 <mat-toolbar *ngIf="!currentUser" class="nav1">
   <mat-toolbar-row>
     <a routerLink="/home">
-      <img src="./assets/logo.png" alt="Skyline" />
+      <img src="./assets/logo.jpeg" alt="Skyline" />
     </a>
     <span class="spacer"></span>
     <div fxShow="true" fxHide.lt-md="true">
@@ -17,7 +17,7 @@
 </mat-toolbar>
 <mat-toolbar class="nav2" *ngIf="currentUser">
   <a routerLink="/home" class="companyName">
-    <img src="./assets/logo-white.png" alt="Skyline" />
+    <img src="./assets/logo-white.jpeg" alt="Skyline" />
   </a>
   <p-menu [showTransitionOptions]="'0ms'" [hideTransitionOptions]="'0ms'" #menu [popup]="true" [model]="items"></p-menu>
 
@@ -26,4 +26,5 @@
 
 <sidebar *ngIf="currentUser"></sidebar>
 
-<router-outlet></router-outlet>
+<router-outlet />
+<loading-indicator [detectRouteTransitions]="true" />

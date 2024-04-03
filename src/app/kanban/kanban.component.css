@@ -2,32 +2,39 @@
   margin-left: 278px;
   margin-top: 76px;
   overflow: hidden;
-  display: inline-block;
   display: flex;
   flex-wrap: nowrap;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
   flex-direction: row;
   align-items: flex-start;
+  scrollbar-color: #e1e1e1 #00000026;
+  padding-bottom: 20px;
+  margin-right: 20px;
 }
+
 
 .card-kanban-item {
   width: 300px;
-  padding-left: 5px;
-  margin-right: 22px;
   display: inline-block;
   flex: 0 0 auto;
   flex-direction: row;
   cursor: pointer;
-  background-color: white;
-  border-radius: 4px;
+  background-color: transparent;
+  border-radius: 6px;
   border: none;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  min-height: 118px;
+  box-shadow: none;
 }
 
+.card-kanban-item:hover {
+  background-color: #EEEFF0;
+}
+
+
 .list-name {
-  font-size: 16px;
-  font-weight: 500;
+  font-size: 15px;
+  font-weight: 600;
   line-height: normal;
   font-family: "Poppins", sans-serif;
   cursor: pointer;
@@ -47,35 +54,40 @@ mat-card-title {
 
 .kanban-item-header {
   margin-bottom: 15px;
+  margin-top: -5px;
 }
 
 .kanban-item-content {
   max-height: 450px;
-  margin-top: -20px;
+  margin-top: -10px;
+  margin-bottom: 6px;
   width: 100%;
   overflow-y: auto;
 }
 
-mat-card-actions {
-  margin-top: 10px;
-}
 
 .new-list-btn {
-  width: 180px;
-  height: 40px;
-  font-size: 14px;
+  width: 270px;
+  font-size: 15px;
   font-weight: 500;
-  background-color: #3f51b5;
-  color: white !important;
-  border-radius: 4px;
+  background-color: #EEEFF0;
+  color: #4f4f62 !important;
+  border-radius: 6px;
   font-family: "Poppins", sans-serif;
   flex: 0 0 auto;
+  margin-right: 20px;
+  justify-content: flex-start;
+  padding: 24px 14px;
+  margin-left: 12px;
+}
+
+.new-list-btn:hover {
+  color: rgb(23, 43, 77) !important;
 }
 
 .create-card-list {
-  padding: 20px;
-  height: 131px;
-  margin-bottom: 10px;
+  min-height: 118px;
+  padding: 14px 8px;
 }
 
 .add-list-btn {
@@ -85,8 +97,10 @@ mat-card-actions {
   font-weight: 400;
   background-color: #3f51b5;
   color: white !important;
-  border-radius: 4px;
+  border-radius: 6px;
   font-family: "Poppins", sans-serif;
+  margin-left: 8px;
+
 }
 
 .save-card-btn {
@@ -99,10 +113,15 @@ mat-card-actions {
   width: 35px;
   height: 35px;
   overflow: hidden;
-  border-radius: 4px;
+  border-radius: 6px;
   margin-left: 4px;
   padding: 0px !important;
 }
+
+.cancel-btn:hover {
+  background-color: #EEEFF0;
+}
+
 
 .input-add {
   width: 226px;
@@ -110,16 +129,13 @@ mat-card-actions {
   font-size: 14px;
   font-weight: 400;
   color: rgb(73, 80, 87);
-  border-radius: 4px;
+  margin-top: -4px;
+  margin-bottom: -4px;
 }
 
-.add {
-  width: 262px;
-}
 
 .card-input {
-  margin-top: 1px;
-  width: 264px;
+  width: 268px;
   font-family: "Poppins", sans-serif;
   font-size: 14px;
   font-weight: 400;
@@ -128,15 +144,17 @@ mat-card-actions {
 }
 
 .add-card-btn {
-  width: 136px;
-  height: 35px;
   font-size: 14px;
-  font-weight: 500;
-  background-color: #3f51b5;
-  color: white !important;
-  border-radius: 4px;
+  font-weight: 400;
+  color: #43434e !important;
+  border-radius: 6px;
   font-family: "Poppins", sans-serif;
   margin-left: 8px;
+  margin-top: -14px;
+}
+
+.add-card-btn:hover {
+  color: rgb(23, 43, 77) !important;
 }
 
 .pi-ellipsis-h {
@@ -146,7 +164,7 @@ mat-card-actions {
 
 ::ng-deep .mat-mdc-menu-panel {
   padding: 2px 10px;
-  border-radius: 4px !important;
+  border-radius: 6px !important;
   width: 155px !important;
   height: 70px !important;
   border: none;
@@ -156,7 +174,16 @@ mat-card-actions {
 
 .icon-menu-btn {
   align-items: center;
-  margin-right: -12px;
+  margin-top: 6px;
+  background-color: transparent;
+  border-radius: 50%;
+  border: none;
+}
+
+.icon-menu-btn:hover {
+  overflow: hidden;
+  background-color: transparent;
+  transform: scale(1.1);
 }
 
 .menu-item {
@@ -172,18 +199,19 @@ mat-card-actions {
 }
 
 .card-task {
-  border-radius: 4px;
-  margin-bottom: 15px;
+  margin-bottom: 12px;
   box-shadow: none;
   cursor: pointer;
-  border-radius: 4px;
+  border-radius: 6px;
   background-color: #ffff;
-  border: 1px solid #dee2e6;
+  border-top: 4px solid #6879dc;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+
 }
 
 .task-name {
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 400;
   line-height: normal;
   font-family: "Poppins", sans-serif;
   cursor: pointer;
@@ -197,16 +225,21 @@ mat-card-actions {
   line-height: normal;
   font-family: "Poppins", sans-serif;
   overflow-wrap: anywhere;
-  margin-bottom: 20px;
   color: rgb(97, 97, 97);
-  padding-top: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.progress {
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .date {
   font-size: 13px;
-  font-weight: 500;
+  font-weight: 400;
   font-family: "Poppins", sans-serif;
-  color: #000033;
+  color: #515156;
   display: flex;
   justify-content: flex-end;
   padding-right: 15px;
@@ -216,14 +249,14 @@ mat-card-actions {
 .pi-clock {
   font-size: 14px;
   font-weight: 200;
-  color: #000033;
+  color: #515156;
   margin-top: 2px;
   margin-right: 6px;
 }
 
 input {
   border: 1px solid #dee2e6;
-  border-radius: 4px;
+  border-radius: 6px;
 }
 
 .space {
@@ -244,7 +277,7 @@ input {
 
 .cdk-drag-preview {
   box-sizing: border-box;
-  border-radius: 4px;
+  border-radius: 6px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   cursor: grabbing !important;
 }
@@ -262,8 +295,9 @@ input {
 }
 
 ::ng-deep .mat-mdc-progress-bar {
-  --mdc-linear-progress-active-indicator-color: #3f51b5;
+  --mdc-linear-progress-active-indicator-color: #f85f92;
 }
+
 
 .buttons {
   display: flex;
@@ -273,7 +307,7 @@ input {
 .cancel-btn {
   background-color: transparent;
   border: none;
-  border-radius: 4px;
+  border-radius: 6px;
   height: 35px;
   width: 35px;
   margin-left: 3px;

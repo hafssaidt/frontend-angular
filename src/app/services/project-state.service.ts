@@ -12,7 +12,9 @@ export class ProjectStateService {
   private projectsSubject = new BehaviorSubject<Project[]>([]);
   projects$: Observable<Project[]> = this.projectsSubject.asObservable();
 
-  constructor(private projectsService: ProjectsService) {}
+  constructor(private projectsService: ProjectsService) {
+    this.fetchProjects();
+  }
 
   fetchProjects() {
     this.projectsService.getAllProjects().subscribe(

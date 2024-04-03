@@ -2,10 +2,7 @@ import {
   Overlay,
   OverlayConfig,
   OverlayModule
-} from "./chunk-I6VQMIIX.js";
-import {
-  CdkScrollableModule
-} from "./chunk-ESH4OIPW.js";
+} from "./chunk-IS6IUN4W.js";
 import {
   DomPortalOutlet,
   TemplatePortal
@@ -17,6 +14,9 @@ import {
   transition,
   trigger
 } from "./chunk-GCOJ3ISX.js";
+import {
+  CdkScrollableModule
+} from "./chunk-ESH4OIPW.js";
 import "./chunk-UQSKPCCA.js";
 import {
   MatCommonModule,

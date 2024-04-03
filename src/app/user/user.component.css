@@ -22,6 +22,7 @@ mat-dialog-actions {
 
 .buttons {
   float: right;
+
 }
 
 .save-btn {
@@ -41,6 +42,7 @@ mat-dialog-actions {
   margin-bottom: 10px;
   margin-top: 20px;
   font-family: "Poppins", sans-serif;
+  cursor: pointer;
 }
 
 .save-btn:hover {
@@ -71,6 +73,7 @@ mat-dialog-actions {
   transition: background-color 0.3s ease, transform 0.3s ease;
   margin-right: 25px;
   margin-top: -15px;
+  cursor: pointer;
 }
 
 #close:hover {
@@ -108,6 +111,8 @@ mat-dialog-actions {
 ::ng-deep .mat-mdc-dialog-container .mdc-dialog__surface {
   border-radius: 25px;
   background-color: #f7faff;
+  scrollbar-color: #d4d4d4 #00000026;
+
 }
 
 .p-button-icon-only {

@@ -1,30 +1,30 @@
-import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
-import { MatButton } from '@angular/material/button';
-import { MatCardModule } from '@angular/material/card';
-import { MatDialog, MatDialogModule } from '@angular/material/dialog';
-import { MatIconModule } from '@angular/material/icon';
-import { MatTableModule } from '@angular/material/table';
-import { CheckboxModule } from 'primeng/checkbox';
+import { CommonModule } from "@angular/common";
+import { Component, OnInit } from "@angular/core";
+import { MatButton } from "@angular/material/button";
+import { MatCardModule } from "@angular/material/card";
+import { MatDialog, MatDialogModule } from "@angular/material/dialog";
+import { MatIconModule } from "@angular/material/icon";
+import { MatTableModule } from "@angular/material/table";
+import { CheckboxModule } from "primeng/checkbox";
 
 import {
   CdkDragDrop,
   DragDropModule,
   moveItemInArray,
-} from '@angular/cdk/drag-drop';
-import { Task } from '../models/task';
-import { TaskService } from '../services/task.service';
-import { AppError } from '../common/app-error';
-import { NotFoundError } from '../common/not-found-error';
-import { BadInput } from '../common/bad-input';
-import { MatCheckbox } from '@angular/material/checkbox';
-import { FormsModule } from '@angular/forms';
-import { TaskComponent } from '../task/task.component';
-import { MenuModule } from 'primeng/menu';
-import { ButtonModule } from 'primeng/button';
+} from "@angular/cdk/drag-drop";
+import { Task } from "../models/task";
+import { TaskService } from "../services/task.service";
+import { AppError } from "../common/app-error";
+import { NotFoundError } from "../common/not-found-error";
+import { BadInput } from "../common/bad-input";
+import { MatCheckbox } from "@angular/material/checkbox";
+import { FormsModule } from "@angular/forms";
+import { TaskComponent } from "../task/task.component";
+import { MenuModule } from "primeng/menu";
+import { ButtonModule } from "primeng/button";
 
 @Component({
-  selector: 'task-list',
+  selector: "task-list",
   standalone: true,
   imports: [
     CommonModule,
@@ -40,14 +40,14 @@ import { ButtonModule } from 'primeng/button';
     ButtonModule,
     CheckboxModule,
   ],
-  templateUrl: './task-list.component.html',
-  styleUrl: './task-list.component.css',
+  templateUrl: "./task-list.component.html",
+  styleUrl: "./task-list.component.css",
 })
 export class TaskListComponent implements OnInit {
   task: Task = {
-    id: '',
-    name: '',
-    description: '',
+    id: "",
+    name: "",
+    description: "",
     completed: false,
     taskOrder: 0,
     startDate: null,
@@ -55,12 +55,12 @@ export class TaskListComponent implements OnInit {
     subTasks: [],
   };
   status: boolean = true;
-  errorMessage: string = '';
-  displayedColumns: string[] = ['name', 'dueDate', 'actions'];
+  errorMessage: string = "";
+  displayedColumns: string[] = ["name", "dueDate", "actions"];
   dragDisabled = false;
   dataSource1: Task[] = [];
   dataSource2: Task[] = [];
-  audio: HTMLAudioElement = new Audio('./assets/check.mp3');
+  audio: HTMLAudioElement = new Audio("./assets/check.mp3");
   constructor(private taskService: TaskService, public dialog: MatDialog) {}
 
   ngOnInit(): void {
@@ -81,7 +81,7 @@ export class TaskListComponent implements OnInit {
       },
       (error: AppError) => {
         if (error instanceof BadInput) alert(error.message);
-        else console.log('Unexpected error');
+        else console.log("Unexpected error");
       }
     );
   }
@@ -100,7 +100,7 @@ export class TaskListComponent implements OnInit {
       },
       (error: AppError) => {
         if (error instanceof BadInput) alert(error.message);
-        else console.log('Unexpected error');
+        else console.log("Unexpected error");
       }
     );
   }
@@ -112,8 +112,8 @@ export class TaskListComponent implements OnInit {
       },
       (error: AppError) => {
         if (error instanceof NotFoundError)
-          alert('Failed to fetch incomplete tasks');
-        else console.log('Unexpected error');
+          alert("Failed to fetch incomplete tasks");
+        else console.log("Unexpected error");
       }
     );
   }
@@ -124,8 +124,8 @@ export class TaskListComponent implements OnInit {
       },
       (error: AppError) => {
         if (error instanceof NotFoundError)
-          alert('Failed to fetch completed tasks');
-        else console.log('Unexpected error');
+          alert("Failed to fetch completed tasks");
+        else console.log("Unexpected error");
       }
     );
   }
@@ -146,7 +146,7 @@ export class TaskListComponent implements OnInit {
       },
       (error: AppError) => {
         if (error instanceof BadInput) alert(error.message);
-        else console.log('Unexpected error');
+        else console.log("Unexpected error");
       }
     );
   }
@@ -162,14 +162,14 @@ export class TaskListComponent implements OnInit {
       },
       (error: AppError) => {
         if (error instanceof BadInput) alert(error.message);
-        else console.log('Unexpected error');
+        else console.log("Unexpected error");
       }
     );
   }
   addTask() {
     const dialogRef = this.dialog.open(TaskComponent, {
-      width: '660px',
-      height: '560px',
+      width: "660px",
+      height: "560px",
       data: {
         task: this.task,
         isAddMode: true,
@@ -183,9 +183,9 @@ export class TaskListComponent implements OnInit {
             this.dataSource1.push(res);
             this.dataSource1 = [...this.dataSource1];
             this.task = {
-              id: '',
-              name: '',
-              description: '',
+              id: "",
+              name: "",
+              description: "",
               completed: false,
               taskOrder: 0,
               startDate: null,
@@ -195,7 +195,7 @@ export class TaskListComponent implements OnInit {
           },
           (error: AppError) => {
             if (error instanceof BadInput) alert(error.message);
-            else console.log('Unexpected error');
+            else console.log("Unexpected error");
           }
         );
       }
@@ -207,7 +207,7 @@ export class TaskListComponent implements OnInit {
       () => {},
       (error: AppError) => {
         if (error instanceof BadInput) alert(error.message);
-        else console.log('Unexpected error');
+        else console.log("Unexpected error");
       }
     );
   }
@@ -225,16 +225,16 @@ export class TaskListComponent implements OnInit {
       },
       (error: AppError) => {
         if (error instanceof NotFoundError)
-          alert('This task is already deleted');
-        else console.log('Unexpected error');
+          alert("This task is already deleted");
+        else console.log("Unexpected error");
       }
     );
   }
 
   viewTask(taskViewed: Task) {
     const dialogRef = this.dialog.open(TaskComponent, {
-      width: '660px',
-      height: '560px',
+      width: "660px",
+      height: "560px",
       data: {
         task: taskViewed,
         isAddMode: false,
@@ -242,9 +242,9 @@ export class TaskListComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe((result: any) => {
       if (result) {
-        if (result.action === 'save')
+        if (result.action === "save")
           this.updateTask(taskViewed.id, result.task);
-        if (result.action === 'delete') this.deleteTask(taskViewed);
+        if (result.action === "delete") this.deleteTask(taskViewed);
       }
     });
   }

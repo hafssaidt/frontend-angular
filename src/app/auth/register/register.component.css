@@ -39,7 +39,7 @@ form {
 }
 
 #switch {
-  color: #ff4e50;
+  color: #FF4081;
 }
 
 .info {
@@ -139,6 +139,6 @@ a {
 }
 
 ::ng-deep .p-checkbox .p-checkbox-box.p-highlight {
-  border-color: #3f51b5;
-  background: #3f51b5;
+  border-color: #FF4081;
+  background: #FF4081;
 }

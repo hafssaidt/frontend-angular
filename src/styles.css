@@ -44,6 +44,8 @@ a {
 
 button {
   font-family: "Poppins", sans-serif;
+  cursor: pointer !important;
+
 }
 
 form,

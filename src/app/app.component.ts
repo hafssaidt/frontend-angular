@@ -1,5 +1,5 @@
+import { LoadingIndicatorComponent } from "./loading-indicator/loading-indicator.component";
 import { UserService } from "./auth/user.service";
-import { MatMenuModule } from "@angular/material/menu";
 import { Component } from "@angular/core";
 import { Router, RouterModule, RouterOutlet } from "@angular/router";
 import { TokenService } from "./auth/token.service";
@@ -31,10 +31,11 @@ import { ProjectStateService } from "./services/project-state.service";
     RouterModule,
     MenuModule,
     ButtonModule,
+    LoadingIndicatorComponent,
   ],
 })
 export class AppComponent {
-  title = "skyline-ang";
+  title = "skylin-ang";
   currentUser = null;
   user: User = {
     id: "",
@@ -87,11 +88,7 @@ export class AppComponent {
     this.projectStateService.setEmptyProjects();
     this.router.navigateByUrl("/login");
   }
-  getProfile() {
-    this.userService.getUser().subscribe((res: User) => {
-      this.user = res;
-    });
-  }
+
   editProfile(user: User) {
     this.userService.updateUser(user).subscribe((res: User) => {
       this.user = res;
@@ -99,13 +96,9 @@ export class AppComponent {
   }
 
   openEditProfile() {
-    this.getProfile();
     const dialogRef = this.dialog.open(UserComponent, {
       width: "550px",
       height: "530px",
-      data: {
-        user: this.user,
-      },
     });
     dialogRef.afterClosed().subscribe((result: any) => {
       if (result) {

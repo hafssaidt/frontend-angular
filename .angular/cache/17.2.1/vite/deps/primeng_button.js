@@ -1,13 +1,13 @@
 import {
+  BaseIcon
+} from "./chunk-UAQDHUFJ.js";
+import {
   Ripple,
   RippleModule
 } from "./chunk-NT6HGVIM.js";
 import {
   DomHandler
 } from "./chunk-EK2YCWCT.js";
-import {
-  BaseIcon
-} from "./chunk-UAQDHUFJ.js";
 import {
   ObjectUtils,
   PrimeTemplate,

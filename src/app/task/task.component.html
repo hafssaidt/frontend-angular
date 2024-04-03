@@ -40,7 +40,7 @@
         </div>
       </div>
       <div class="buttons">
-        <p-button-icon-only [mat-dialog-close]="{ action: 'delete', task: task }" class="delete-btn">
+        <p-button-icon-only *ngIf="!isAddMode" [mat-dialog-close]="{ action: 'delete', task: task }" class="delete-btn">
           <i class="pi pi-trash"></i>
         </p-button-icon-only>
         <button mat-button [disabled]="f.invalid" [mat-dialog-close]="{ action: 'save', task: task }"
