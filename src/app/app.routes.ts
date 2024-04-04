@@ -11,6 +11,7 @@ import { TaskListProjectComponent } from "./task-list-project/task-list-project.
 import { HomeComponent } from "./home/home.component";
 
 export const routes: Routes = [
+  { path: "", redirectTo: "/home" },
   {
     path: "home",
     component: HomeComponent,
@@ -35,5 +36,4 @@ export const routes: Routes = [
     component: DashboardComponent,
     canActivate: [AuthGuard],
   },
-  { path: "**", redirectTo: "/home" },
 ];
