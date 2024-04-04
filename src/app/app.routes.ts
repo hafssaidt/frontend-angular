@@ -36,9 +36,4 @@ export const routes: Routes = [
     component: DashboardComponent,
     canActivate: [AuthGuard],
   },
-  {
-    path: "sitemap.xml",
-    redirectTo: "src/sitemap.xml",
-    pathMatch: "full",
-  },
 ];
