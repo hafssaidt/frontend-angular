@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://skylin.onrender.com/sitemap.xml
