@@ -154,6 +154,13 @@ td {
   color: rgba(58, 58, 59, 0.991);
 }
 
+.dragCursor {
+  margin-right: 16px;
+  cursor: pointer;
+  line-height: 1;
+  color: rgba(58, 58, 59, 0.991);
+}
+
 .cdk-drag-preview {
   box-sizing: border-box;
   border-radius: 4px;

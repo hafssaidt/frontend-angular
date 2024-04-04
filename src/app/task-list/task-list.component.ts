@@ -57,7 +57,6 @@ export class TaskListComponent implements OnInit {
   status: boolean = true;
   errorMessage: string = "";
   displayedColumns: string[] = ["name", "dueDate", "actions"];
-  dragDisabled = false;
   dataSource1: Task[] = [];
   dataSource2: Task[] = [];
   audio: HTMLAudioElement = new Audio("./assets/check.mp3");

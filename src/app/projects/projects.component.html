@@ -10,11 +10,11 @@
       </button>
 
       <mat-table #table [dataSource]="dataSource" cdkDropList (cdkDropListDropped)="drop($event)"
-        [cdkDropListData]="dataSource" [cdkDropListDisabled]="dragDisabled">
-        <ng-container matColumnDef="order" sticky>
+        [cdkDropListData]="dataSource">
+        <ng-container matColumnDef="drag">
           <mat-header-cell *matHeaderCellDef> Drag </mat-header-cell>
           <mat-cell *matCellDef="let element">
-            <i class="pi pi-arrows-alt" (mousedown)="dragDisabled = false"></i>
+            <i class="pi pi-arrows-alt"></i>
             <!--<span>{{ element.projectOrder }}</span>-->
           </mat-cell>
         </ng-container>

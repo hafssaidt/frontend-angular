@@ -8,7 +8,7 @@
   <mat-card-content>
     <div class="mat-table-container">
       <mat-table #table [dataSource]="dataSource1" cdkDropList (cdkDropListDropped)="dropToList1($event)"
-        [cdkDropListData]="dataSource1" [cdkDropListDisabled]="dragDisabled">
+        [cdkDropListData]="dataSource1">
         <ng-container matColumnDef="name">
           <mat-header-cell *matHeaderCellDef> ToDo </mat-header-cell>
           <mat-cell *matCellDef="let element">
@@ -44,7 +44,7 @@
 
     <div class="mat-table-container">
       <mat-table #table [dataSource]="dataSource2" cdkDropList (cdkDropListDropped)="dropToList2($event)"
-        [cdkDropListData]="dataSource2" [cdkDropListDisabled]="dragDisabled">
+        [cdkDropListData]="dataSource2">
         <ng-container matColumnDef="name">
           <mat-header-cell *matHeaderCellDef> Completed </mat-header-cell>
           <mat-cell *matCellDef="let element">

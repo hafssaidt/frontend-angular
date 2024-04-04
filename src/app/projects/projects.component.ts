@@ -46,8 +46,7 @@ export class ProjectsComponent implements OnInit {
   status: boolean = true;
   errorMessage: string = "";
 
-  displayedColumns: string[] = ["order", "name", "priority", "dueDate", "edit"];
-  dragDisabled = true;
+  displayedColumns: string[] = ["drag", "name", "priority", "dueDate", "edit"];
   dataSource: Project[] = [];
   constructor(
     private projectStateService: ProjectStateService,
@@ -62,8 +61,6 @@ export class ProjectsComponent implements OnInit {
   }
 
   drop(event: CdkDragDrop<Project[]>) {
-    this.dragDisabled = true;
-
     const previousIndex = this.dataSource.findIndex(
       (d) => d === event.item.data
     );
