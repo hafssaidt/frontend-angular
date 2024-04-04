@@ -65,7 +65,7 @@ export class LoginComponent {
   handleResponse(data: any) {
     this.tokenService.handle(data);
     this.accountService.changeStatus(true);
-    this.projectStateService.fetchProjects();
+    //this.projectStateService.fetchProjects();
     this.router.navigateByUrl("/tasks");
   }
 }

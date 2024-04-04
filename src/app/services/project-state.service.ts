@@ -1,4 +1,4 @@
-import { Injectable } from "@angular/core";
+import { Injectable, OnInit } from "@angular/core";
 import { BehaviorSubject, NotFoundError, Observable } from "rxjs";
 import { Project } from "../models/project";
 import { ProjectsService } from "./projects.service";
@@ -12,9 +12,7 @@ export class ProjectStateService {
   private projectsSubject = new BehaviorSubject<Project[]>([]);
   projects$: Observable<Project[]> = this.projectsSubject.asObservable();
 
-  constructor(private projectsService: ProjectsService) {
-    this.fetchProjects();
-  }
+  constructor(private projectsService: ProjectsService) {}
 
   fetchProjects() {
     this.projectsService.getAllProjects().subscribe(
