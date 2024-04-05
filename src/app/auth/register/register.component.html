@@ -61,9 +61,8 @@
 
         <div class="form-group mt-2 p-input-icon-right">
           <label for="pswd">Password</label>
-          <input [type]="hidePassword ? 'password' : 'text'" [required]="confirmPassword !== ''" minlength="8"
-            maxlength="20" [(ngModel)]="user.password" #pswd="ngModel" name="pswd" class="form-control" id="pswd"
-            appNoWhitespace />
+          <input [type]="hidePassword ? 'password' : 'text'" required minlength="8" maxlength="20"
+            [(ngModel)]="user.password" #pswd="ngModel" name="pswd" class="form-control" id="pswd" appNoWhitespace />
           <i #icon class="pswd-icon" (click)="hidePassword = !this.hidePassword">
             <i class="pi pi-eye" *ngIf="!hidePassword"></i>
             <i class="pi pi-eye-slash" *ngIf="hidePassword"></i>
@@ -81,9 +80,9 @@
 
         <div class="form-group mt-2 p-input-icon-right">
           <label for="confirmPswd">Confirm Password</label>
-          <input [type]="hideConfPassword ? 'password' : 'text'" [required]="user.password !== ''" minlength="8"
-            maxlength="20" [(ngModel)]="confirmPassword" name="confirmPswd" class="form-control" #confirmPswd="ngModel"
-            type="password" id="confirmPswd" />
+          <input [type]="hideConfPassword ? 'password' : 'text'" required minlength="8" maxlength="20"
+            [(ngModel)]="confirmPassword" name="confirmPswd" class="form-control" #confirmPswd="ngModel" type="password"
+            id="confirmPswd" />
           <i #icon class="pswd-icon" (click)="hideConfPassword = !this.hideConfPassword">
             <i class="pi pi-eye" *ngIf="!hideConfPassword"></i>
             <i class="pi pi-eye-slash" *ngIf="hideConfPassword"></i>

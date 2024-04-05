@@ -1,38 +1,34 @@
 mat-card {
-  margin-left: 31%;
-  width: 480px;
+  margin-left: 32%;
+  width: 37%;
   position: fixed;
   border-radius: 8px;
   overflow: hidden;
   border: none;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  margin-top: 140px;
+  margin-top: 14%;
   align-items: center;
+  padding: 0px 6%;
 }
 
 .title {
   margin-top: 20px;
   margin-bottom: 10px;
   font-size: 30px;
-  font-weight: 800px;
+  font-weight: 500;
   color: #000033 !important;
   font-family: "Poppins", sans-serif;
 }
 
 form {
   font-size: 15px;
-  font-weight: 500px;
+  font-weight: 500;
   align-items: center;
 }
 
-.form-control {
-  width: 350px;
-  height: 45px;
-}
 
 .msg {
   font-size: 15px;
-  font-weight: 500px;
   text-align: center;
   font-family: "Poppins", sans-serif;
 }
@@ -91,8 +87,8 @@ a {
 
 label {
   font-size: 14px;
-  font-weight: 400px;
-  color: rgb(107, 109, 124);
+  font-weight: 400;
+  color: rgb(83, 85, 95);
   display: block;
 
 }

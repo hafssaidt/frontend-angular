@@ -7,14 +7,14 @@
   align-items: center;
   justify-content: space-between;
   height: 100%;
-  gap: 60px;
+  gap: 6%;
   background-color: #F8FAFB;
-  margin-left: 140px;
+  margin-left: 12%;
 }
 
 .text-container {
   flex: 1;
-  margin-top: -10px;
+  margin-top: -15px;
 }
 
 .text-container h1 {
